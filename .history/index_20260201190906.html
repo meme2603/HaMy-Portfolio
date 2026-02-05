@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ha My</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="/img/memex2.png">
+<body>
+<div class="container">
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="first-part">NGUYEN THI </span>
+                <span class="last-part">HA MY</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">App Design</a></li>
+                    <li><a href="#">Visual Design</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact-popup" class="material-symbols-outlined">mail</a></li>
+                </ul>
+                <!-- <a href="#" class="contact-icon"></a> -->
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="title-top">
+    <span class="vertical-text">DESIGNER</span>
+    PORTFOLIO
+    </h1>
+        
+        <div class="intro-text">
+            <div>Hi!<br>My name is <b>NGUYEN THI HA MY</b><br>I'm from Vietnam</div>
+            <img src="/img/profile.svg" alt="Ha My" class="my-photo">
+            <div>I'm <b>UX/UI and visual designer</b><br>Now I'm living in Japan.<br>This is my portfolio.</div>
+        </div>
+        <h1 class="designer-text">DESIGNER</h1>
+        <p class="line"></p>
+    </section>
+    <div id="contact-popup" class="overlay">
+    <div class="popup">
+        <h2>お問い合わせ</h2> <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+            ご質問やご依頼など、お気軽にご連絡ください。
+            <br>(For any queries or work requests, please contact me.)
+        </p>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form action="https://formspree.io/f/xnjzqegr" method="POST">
+            <input type="text" name="name" placeholder="お名前 ( Name)" required>
+            <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+            <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+            <button type="submit" class="btn-send">送信する</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<section class="about">
+
+  <!-- ROW TOP -->
+  <div class="about-top">
+
+    <!-- ABOUT ME -->
+    <div class="about-box">
+      <h2>About me</h2>
+      <p>グエン ティ ハ ミー</p>
+      <p>2001/03/30</p>
+      <p>ベトナム出身</p>
+      <p>UX/UI & Visualデザイナー</p>
+    </div>
+
+    <!-- SOFTWARE -->
+    <div class="about-box">
+      <h2>Software</h2>
+
+    <div class="skill">
+        <div class="skill-info">
+        <img src="/img/Figma.svg" class="skill-icon"> 
+        <span>Figma</span></div>
+        <div class="bar"><span class="fill figma" style="width: 80%;"></span></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-info">
+            <img src="/img/Illustrator.svg" class="skill-icon">
+            <span>Illustrator</span>
+        </div>
+        <div class="bar"><span class="fill ai" style="width: 75%;"></span></div>
+    </div>
+
+      <div class="skill">
+        <div class="skill-info">
+            <img src="/img/Photoshop.svg" class="skill-icon">
+            <span>Illustrator</span>
+        </div>
+        <div class="bar"><span class="fill ai" style="width: 75%;"></span></div>
+        
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="about-box">
+  <h2>Social media</h2>
+  <ul class="social">
+    <li><img src="/img/Social Icons.svg" class="social-icon"> Facebook</li>
+    <li><img src="/img/ig.svg" class="social-icon"> Instagram</li>
+    <li><img src="/img/behan.svg" class="social-icon"> Behance</li>
+  </ul>
+</div>
+
+  </div>
+
+
+
+  <!-- PR -->
+  <div class="about-pr">
+    <h2>自己PR</h2>
+    <p>日本に留学して<strong>5年間</strong>、WEBデザインを学び、<span class="highlight">Figma・Illustrator・Photoshop</span>を使ったUIデザインやビジュアル制作に取り組んできました。特にFigmaを使ったワイヤーフレーム作成やプロトタイプ設計では、ユーザの目的を丁寧に分析し、分かりやすく、使いやすい構成を意識しています。</p>
+    <p>一度作って終わりではなく、実施に使う人の立場に立ち、<strong>何度もテストと修正を重ねる</strong>ことで、より良い形に近づけることを大切にしています。ビジュアル制作の課題でも何度も先生、また周りの人にフィードバックをもらって、修正を繰り返し、最終的に先生から<span class="highlight">高い評価</span>をいただくことができました。<strong>JLPT N2</strong>を取得し、日本語での円滑のコミュニケーションも可能です。今後もスキルを磨き続け、努力を積み重ねながら、「伝わる・使いやすい」デザインを追求しています。</p>
+    </div>
+    <a href="#" class="btn">詳細はこちら <span class="icon"><img src="/img/next.svg" alt=""></span></a>
+  </div>
+
+</section>
+</div>
+
+<section class="index-z">
+  <div class="z-left-top">
+    <h1>INDEX</h1>
+    <p>
+      This portfolio includes my works in  
+      Web Design, App Design and Visual Design.
+    </p>
+  </div>
+
+  <div class="z-right-top">
+    <a href="#web" class="index-item">Web Design</a>
+  </div>
+
+  <div class="z-left-bottom">
+    <a href="#visual" class="index-item">Visual Design</a>
+  </div>
+
+  <div class="z-right-bottom">
+    <a href="#app" class="index-item">App Design</a>
+  </div>
+</section>
+
+
+</body>
+
+<div class="thank">
+    <h2 class="thanks-msg">Thank you for watching!</h2>
+    <p class="sub-msg">最後までご覧いただきありがとうございました。</p>
+</div>
+
+<div class="footer-contact-button">
+    <p class="label">CONTACT ME</p>
+    <p>ご質問やご依頼など、お気軽にご連絡ください。</p>
+
+    <div class="contact">
+        <form action="https://formspree.io/f/xnjzqegr" method="POST">
+        <input type="text" name="name" placeholder="お名前 ( Name)" required>
+        <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+        <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+        <button type="submit" class="btn-send">送信する</button>
+        </form>
+    </div>
+
+</div>
+<footer class="main-footer">
+
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="m-logo">M</span> PORTFOLIO
+            </div>
+        
+            <div class="footer-bottom">
+                <p>&copy; 2026 MY. All Rights Reserved.</p>
+                <p>Based in Osaka, Japan 🇯🇵</p>
+            </div>
+        </div>
+
+</footer>
+</html>

@@ -1,0 +1,257 @@
+/* CSS CƠ BẢN */
+body { 
+    margin: 0; 
+    font-family: "Akshar", sans-serif;
+    background-color: #f9f9f9; 
+    color: #000; 
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: auto; 
+    padding: 16px; 
+}
+        
+/* HEADER - THANH MENU */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    /* padding: 20px 0;  */
+}
+.logo {
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 32px;
+    color: #b22222;
+    display: flex;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden; /* Để không bị lộ chữ khi đang giấu */
+}
+
+/* Phần chữ NGUYEN THI (ban đầu giấu đi) */
+.first-part {
+    max-width: 0;      /* Chiều rộng bằng 0 */
+    opacity: 0;        /* Trong suốt */
+    display: inline-block;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); /* Hiệu ứng co giãn xịn */
+    margin-right: 0;   /* Không có khoảng cách */
+}
+
+/* Phần chữ HA MY (luôn hiện) */
+.last-part {
+    display: inline-block;
+    transition: all 1s ease;
+}
+
+/* KHI HOVER VÀO */
+.logo:hover .first-part {
+    max-width: 200px;  /* Đủ rộng để hiện chữ NGUYEN THI */
+    opacity: 1;        /* Hiện rõ lên */
+    margin-right: 8px; /* Tạo khoảng cách với chữ HA MY */
+}
+
+/* Một chút hiệu ứng màu cho xịn */
+.logo:hover {
+    color: #b22222; /* Đổi sang màu đen khi hiện tên đầy đủ (tùy bà thích nha) */
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav a { 
+    margin-left: 20px; 
+    text-decoration: none; 
+    color: #b22222; 
+    font-size: 20px; 
+    font-weight: 200; 
+    
+}
+nav a {
+    position: relative; /* Quan trọng: Để làm điểm tựa cho cái line */
+    padding-bottom: 5px; /* Tạo khoảng cách nhỏ giữa chữ và gạch chân */
+}
+
+/* Tạo cái line ẩn nằm dưới chữ */
+nav a::after {
+    content: ""; /* Bắt buộc phải có để hiện phần tử giả */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;        /* Ban đầu chiều dài bằng 0 (ẩn đi) */
+    height: 2px;     /* Độ dày của cái line */
+    background-color: #b22222; /* Màu của cái line */
+    transition: width 0.3s ease; /* Hiệu ứng chạy mượt trong 0.3 giây */
+}
+
+/* Khi hover vào: line sẽ dài ra 100% */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Lớp phủ đen mờ toàn màn hình */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Màu đen trong suốt */
+    transition: opacity 500ms;
+    visibility: hidden; /* Bình thường thì ẩn */
+    opacity: 0;
+    z-index: 999;
+}
+
+/* Khi nhấn vào link có href="#contact-popup" thì hiện lên */
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Khung bảng liên hệ */
+.popup {
+    margin: 70px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    width: 30%; /* Độ rộng của bảng */
+    min-width: 300px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+}
+
+.popup h2 {
+    color: #b22222;
+    margin-top: 0;
+}
+
+/* Nút đóng (X) */
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style cho các ô nhập liệu */
+form input, form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Giữ form không bị tràn */
+}
+
+form textarea { height: 100px; resize: none; }
+
+/* Nút gửi */
+.btn-send {
+    background: #b22222;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover { 
+    background: #000; 
+}
+
+
+/* HERO SECTION - PHẦN ĐẦU TRANG */
+.hero { 
+    position: relative; 
+    text-align: center; 
+    padding: 24px 0; 
+}
+.hero h1 { 
+    font-size: 200px; 
+    font-weight: 900; 
+    margin: 0; 
+    line-height: 0.8; 
+    letter-spacing: 10px; 
+}
+.title-top {
+    position: relative; /* Làm mỏ neo cho chữ dọc */
+    z-index: 1;
+    font-size: 100px; /* Chỉnh theo size bà đang để */
+    font-weight: 900;
+    line-height: 1;
+}
+
+.vertical-text {
+    position: absolute;
+    left: -35px;      /* Đẩy sang bên trái của chữ Portfolio */
+    top: 40%;         /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%) rotate(-90deg); /* Xoay ngược 90 độ */
+    
+    font-size: 14px;  /* Chữ nằm dọc thường nhỏ thôi mới xinh */
+    letter-spacing: 10px; /* Giãn cách chữ cho sang */
+    color: white;   /* Màu đỏ tone-sur-tone của bà */
+    font-weight: normal;
+    white-space: nowrap;
+}
+.hero .designer-text { 
+    color: #9C0000; 
+    font-size: 200px; 
+    position: relative;
+    margin-top: -124px; 
+    z-index: 1;
+    /* Đổ bóng: X=9px, Y=6px, Màu=#121212 */
+    text-shadow: 9px 6px 0px #121212; 
+    
+    /* Nếu bà muốn bóng nó mờ nhẹ một chút cho tự nhiên thì dùng dòng dưới này: */
+    /* text-shadow: 9px 6px 4px #121212; */
+}
+.line{
+    background-color: #121212;
+    width: 100%;
+    height: 65px;
+    position: relative;
+    margin-top: -76px;
+}
+        
+/* Chèn ảnh của bạn vào đây */
+.my-photo { 
+    width: 500px; 
+    height: auto; 
+    margin: 40px 0; 
+    border-radius: 10px; 
+}
+
+.intro-text { 
+    display: flex; 
+    justify-content: space-around; 
+}
+.intro-text div{
+    margin-top: 200px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/*  */
+.about {
+  padding: 80px;
+}
+
+.about-top {
+  display: flex;
+  gap: 80px;
+}
+
+.about-box {
+  flex: 1;
+}
+
+

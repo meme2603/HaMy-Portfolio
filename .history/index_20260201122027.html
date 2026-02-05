@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nguyen Thi Ha My</title>
+    <link rel="icon" href="favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS CƠ BẢN */
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #000; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        /* HEADER - THANH MENU */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { color: #b22222; font-weight: bold; font-size: 24px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #b22222; font-size: 14px; font-weight: bold; }
+
+        /* HERO SECTION - PHẦN ĐẦU TRANG */
+        .hero { position: relative; text-align: center; padding: 50px 0; }
+        .hero h1 { font-size: 120px; font-weight: 900; margin: 0; line-height: 0.8; letter-spacing: -5px; }
+        .hero .designer-text { color: #b22222; font-size: 100px; margin-top: -20px; }
+        
+        /* Chèn ảnh của bạn vào đây */
+        .my-photo { width: 300px; height: auto; margin: 20px 0; border-radius: 10px; }
+
+        .intro-text { display: flex; justify-content: space-around; font-size: 14px; margin-top: 20px; }
+
+        /* ABOUT SECTION - THÔNG TIN CHI TIẾT */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 50px; padding: 40px 0; border-top: 1px solid #ddd; }
+        .info-grid h3 { font-size: 18px; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 15px; }
+        
+        /* SKILL BARS - THANH KỸ NĂNG */
+        .skill-item { margin-bottom: 15px; }
+        .skill-name { display: flex; align-items: center; font-weight: bold; font-size: 13px; }
+        .skill-bar-bg { background: #ddd; height: 8px; border-radius: 4px; margin-top: 5px; }
+        .skill-bar-fill { background: #b22222; height: 100%; border-radius: 4px; }
+
+        /* SOCIAL MEDIA */
+        .social-link { display: block; margin-bottom: 10px; text-decoration: none; color: #000; font-weight: bold; }
+
+        /* PR SECTION - GIỚI THIỆU BẢN THÂN */
+        .self-pr { text-align: center; padding: 50px 0; }
+        .self-pr h2 { font-size: 24px; letter-spacing: 5px; }
+        .pr-content { max-width: 800px; margin: auto; text-align: left; line-height: 1.8; color: #333; }
+        
+        /* NÚT XEM CHI TIẾT */
+        .btn-more { background: #b22222; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; float: right; }
+    </style>
+</head>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="/img/meme.PNG">
+
+<body>
+    <div class="container">
+    <header>
+        <div class="logo">Ha My</div>
+        <nav>
+            <a href="#">Web Design</a>
+            <a href="#">App Design</a>
+            <a href="#">Visual Design</a>
+            <a href="#">About</a>
+            <a href="#">✉</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>PORTFOLIO</h1>
+        <img src="/img/profile.png" width="300" height="500" alt="Ha My" class="my-photo">
+        <h1 class="designer-text">DESIGNER</h1>
+        
+        <div class="intro-text">
+            <div>Hi!<br>My name is <b>NGUYEN THI HA MY</b><br>I'm from Vietnam</div>
+            <div>I'm <b>UX/UI and visual designer</b><br>Now I'm living in Japan.<br>This is my portfolio.</div>
+        </div>
+    </section>
+
+    <section class="info-grid">
+        <div class="about-me">
+            <h3>About me</h3>
+            <p><b>NGUYEN THI HA MY</b></p>
+            <p>2001/03/30</p>
+            <p>ベトナム出身</p>
+            <p>UX/UI & Visual デザイナー</p>
+        </div>
+
+        <div class="software">
+            <h3>Software</h3>
+            <div class="skill-item">
+                <div class="skill-name">Figma</div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Illustrator</div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 50%;"></div></div>
+            </div>
+        </div>
+
+        <div class="social">
+            <h3>Social media</h3>
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Behance</a>
+        </div>
+    </section>
+
+    <section class="self-pr">
+        <h2>自己PR</h2>
+        <div class="pr-content">
+            <p>Nội dung giới thiệu bản thân của bạn tại đây. Bạn có thể chép đoạn tiếng Nhật từ ảnh vào đây để hiển thị chính xác...</p>
+            <button class="btn-more">詳細はこちら →</button>
+        </div>
+    </section>
+</div>
+</body>
+</html>

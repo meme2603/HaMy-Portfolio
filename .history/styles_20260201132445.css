@@ -1,0 +1,190 @@
+/* CSS CƠ BẢN */
+body { 
+    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    background-color: #f9f9f9; 
+    color: #000; 
+}
+.container { 
+    max-width: 1000px; 
+    margin: auto; 
+    padding: 20px; 
+}
+        
+        /* HEADER - THANH MENU */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 0; 
+}
+.logo {
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 24px;
+    color: #b22222;
+    display: flex; /* Dùng flex để các chữ nằm ngang hàng */
+    align-items: center;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    white-space: nowrap; /* Không cho chữ xuống dòng */
+}
+
+.full-name {
+    display: inline-block;
+    max-width: 0;       /* Ban đầu cho chiều rộng bằng 0 */
+    opacity: 0;         /* Ẩn chữ đi */
+    overflow: hidden;   /* Chỗ nào thừa ra thì giấu đi */
+    transition: all 0.5s ease; /* Tạo hiệu ứng giãn ra trong 0.5 giây */
+    text-transform: uppercase;
+    /* Tạo một chút khoảng cách khi hiện ra */
+    letter-spacing: -2px; 
+}
+
+/* KHI HOVER VÀO */
+.logo:hover .full-name {
+    max-width: 300px;   /* Cho phép nó giãn ra tối đa 300px (đủ cho tên bà) */
+    opacity: 1;         /* Hiện chữ lên */
+    margin: 0 5px;      /* Tạo khoảng cách nhẹ với chữ Ha và My */
+    letter-spacing: 0px; /* Chữ giãn ra bình thường */
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav a { 
+    margin-left: 20px; 
+    text-decoration: none; 
+    color: #b22222; 
+    font-size: 14px; 
+    font-weight: bold; 
+    
+}
+nav a {
+    position: relative; /* Quan trọng: Để làm điểm tựa cho cái line */
+    padding-bottom: 5px; /* Tạo khoảng cách nhỏ giữa chữ và gạch chân */
+}
+
+/* Tạo cái line ẩn nằm dưới chữ */
+nav a::after {
+    content: ""; /* Bắt buộc phải có để hiện phần tử giả */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;        /* Ban đầu chiều dài bằng 0 (ẩn đi) */
+    height: 2px;     /* Độ dày của cái line */
+    background-color: #b22222; /* Màu của cái line */
+    transition: width 0.3s ease; /* Hiệu ứng chạy mượt trong 0.3 giây */
+}
+
+/* Khi hover vào: line sẽ dài ra 100% */
+nav a:hover::after {
+    width: 100%;
+}
+    /* HERO SECTION - PHẦN ĐẦU TRANG */
+.hero { 
+    position: relative; 
+    text-align: center; 
+    padding: 50px 0; 
+}
+.hero h1 { 
+    font-size: 120px; 
+    font-weight: 900; 
+    margin: 0; 
+    line-height: 0.8; 
+    letter-spacing: -5px; 
+}
+.hero .designer-text { 
+    color: #b22222; 
+    font-size: 100px; 
+    margin-top: -20px; 
+}
+        
+/* Chèn ảnh của bạn vào đây */
+.my-photo { 
+    width: 300px; 
+    height: auto; 
+    margin: 20px 0; 
+    border-radius: 10px; 
+}
+
+.intro-text { 
+    display: flex; 
+    justify-content: 
+    space-around; 
+    font-size: 14px; 
+    margin-top: 20px; 
+}
+
+/* ABOUT SECTION - THÔNG TIN CHI TIẾT */
+.info-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 40px; margin-top: 50px; 
+    padding: 40px 0; 
+    border-top: 1px solid #ddd; 
+}
+.info-grid h3 { 
+    font-size: 18px; 
+    border-bottom: 2px solid #000; 
+    padding-bottom: 5px; 
+    margin-bottom: 15px; 
+}
+
+/* SKILL BARS - THANH KỸ NĂNG */
+.skill-item { 
+    margin-bottom: 15px; 
+}
+.skill-name { 
+    display: flex; 
+    align-items: center; 
+    font-weight: bold; 
+    font-size: 13px; 
+}
+.skill-bar-bg { 
+    background: #ddd; 
+    height: 8px; 
+    border-radius: 4px; 
+    margin-top: 5px; 
+}
+.skill-bar-fill { 
+    background: #b22222; 
+    height: 100%; 
+    border-radius: 4px; 
+}
+
+/* SOCIAL MEDIA */
+.social-link { 
+    display: block; 
+    margin-bottom: 10px; 
+    text-decoration: none; 
+    color: #000; 
+    font-weight: bold; 
+}
+
+/* PR SECTION - GIỚI THIỆU BẢN THÂN */
+.self-pr { 
+    text-align: center; 
+    padding: 50px 0; 
+}
+.self-pr h2 { 
+    font-size: 24px; 
+    letter-spacing: 5px; 
+}
+.pr-content { 
+    max-width: 800px; 
+    margin: auto; 
+    text-align: left; 
+    line-height: 1.8; 
+    color: #333; 
+}
+
+/* NÚT XEM CHI TIẾT */
+.btn-more { 
+    background: #b22222; 
+    color: white; border: 
+    none; padding: 10px 25px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    float: right; 
+}
