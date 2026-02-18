@@ -343,69 +343,40 @@ form textarea { height: 100px; resize: none; }
 /* Chỉnh chữ trong About Me cho thoáng */
 .about-box p {
     margin-bottom: 12px;
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: bold;
 }
-
-/* Khung chứa mỗi món Skill (Figma, AI...) */
 .skill-item {
-    margin-bottom: 10px;
-}
-
-/* Header của skill: chứa Icon, Tên và % */
-.skill-label {
-    display: flex;
-    align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
-    gap: 10px;           /* Khoảng cách giữa icon và chữ */
-    margin-bottom: 8px;
-    font-weight: 500;
+    display: flex;          /* Chia làm 2 cột: Logo và Info */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    gap: 16px;              /* Khoảng cách giữa logo và chữ */
+    margin-bottom: 18px;    /* Khoảng cách giữa các phần mềm */
 }
 
 .skill-icon {
-    width: 25px;
-    height: 25px;
-    object-fit: contain; /* Đảm bảo icon không bị bóp méo */
+    width: 40px;            /* Tăng size logo lên một chút để làm chuẩn chiều cao */
+    height: 40px;
+    object-fit: contain;
 }
 
-.percent {
-    margin-left: auto;   /* Chiêu này giúp đẩy số % về sát bên phải box */
-    color: #b22222;
-    font-weight: bold;
+.skill-info {
+    display: flex;
+    flex-direction: column; /* Cho tên và mô tả xếp chồng lên nhau */
+    justify-content: center; /* Căn giữa nội dung trong chiều cao của logo */
 }
 
-/* Cái máng của thanh bar */
-.bar-bg {
-    width: 100%;
-    height: 8px;
-    background-color: #eee;
-    border-radius: 10px;
-    overflow: hidden; /* Để thanh con không tràn ra ngoài */
+.skill-info strong {
+    font-size: 18px;     /* Tên phần mềm */
+    line-height: 1.2;
+    color: #121212;
 }
 
-/* Thanh màu đỏ chạy bên trong */
-.bar-fill {
-    display: block;
-    height: 100%;
-    background-color: #b22222;
-    width: var(--w); /* Lấy % từ cái style="--w: 80%" ở HTML */
-    border-radius: 10px;
-}
-/* 1. Định nghĩa chuyển động trượt */
-@keyframes slideIn {
-    from { width: 0; } /* Bắt đầu từ 0% */
-    to { width: var(--w); } /* Chạy đến % bà đã đặt ở HTML */
-}
-
-/* 2. Áp dụng vào thanh bar-fill */
-.bar-fill {
-    display: block;
-    height: 100%;
-    background-color: #b22222;
-    width: var(--w);
-    border-radius: 10px;
-    
-    /* Dòng lệnh phép thuật đây: */
-    animation: slideIn 1.5s ease-out forwards; 
+.skill-info .skill-desc {
+    font-size: 0.75rem;     /* Mô tả nhỏ lại để bằng chiều cao logo */
+    color: #666;
+    margin: 0;              /* Bỏ margin mặc định của thẻ p */
+    line-height: 1.2;
 }
 
 .social-links {
@@ -422,26 +393,43 @@ form textarea { height: 100px; resize: none; }
 }
 
 .social-links img {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
+}
+.social-links a {
+    text-decoration: none;
+    color: #666;
+    transition: 0.3s;
+}
+.social-links a:hover {
+    color: #9C0000; /* Rê chuột vào hiện màu đỏ thương hiệu của bà */
+    padding-left: 5px; /* Hiệu ứng nhích nhẹ sang phải */
 }
 
 
 /* PR + BUTTON */
+.about-pr{
+    padding: 0 20px;
+    max-width: 1125px;
+    margin: 0 auto;
+}
 .about-pr h2{
-    max-width: 800px;
     padding: 0 20px;
     text-align: center;
     font-size: 40px;
     margin: 0 auto;
-    
+}
+.about-pr h4{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 16px;
 }
 .about-pr p{
     text-align: left;
     line-height: 1.5;
     color: #121212;
-    margin-bottom: 20px;
-    margin-top: 24px;
+    margin-bottom: 16px;
+    /* margin-top: 24px; */
     font-size: 18px;
     letter-spacing: 0.3;
 }
@@ -449,37 +437,6 @@ form textarea { height: 100px; resize: none; }
 .highlight {
     color: #b22222; 
     font-weight: bold;
-}
-
-/* Nhấn mạnh thông thường 
- strong {
-    color: #000;
-    font-weight: 900;
-    background: linear-gradient(transparent 60%, #ffdfdf 40%); /* Tô nền vàng nhạt/hồng nhạt phía dưới chữ 
-} */
-
-.btn {
-  display: inline-block;
-    background: darkred;
-    color: white;
-    text-decoration: none;
-    padding: 10px 30px;
-    border-radius: 5px;
-    font-weight: normal;
-    transition: 0.3s;
-}
-/* CỔ ĐIỂN (NHANH NHƯNG ÍT DÙNG)không khuyên dùng lâu dài(vì float dễ phá layout) */
-.btn {
-  float: right;
-}
-.btn span{
-    vertical-align: middle;
-    margin-left: 8px;
-    font-weight: normal;
-}
-.btn:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-    transform: translateY(-5px);
 }
 
 /* index */
@@ -865,7 +822,134 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 5px;
 }
-/* footer  */
+
+/* About-extra */
+
+.about-me-extra {
+    padding: 40px 0;
+    background-color: #eee;
+    /* border-top: 1px solid #eee; */
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Phần Intro 2 cột */
+.personal-intro {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 60px auto;
+}
+
+.avatar img {
+    width: 350px; 
+    height: 350px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.my-story {
+    flex: 1;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.container-inner h2{
+    padding: 0 20px;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 auto;
+}
+
+
+/* Phần 3 cột phía dưới */
+.triple-columns {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.info-col {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.info-col:hover {
+    transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ khi rê chuột */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sub-title-black {
+    font-size: 1.1rem;
+    color: #121212;
+    margin-bottom: 15px;
+    border-left: 4px solid #b22222; /* Thêm vạch đỏ bên trái cho chất */
+    padding-left: 10px;
+}
+
+.info-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .personal-intro, .triple-columns {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* slide */
+.slider-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Tạo khung ảnh tỉ lệ 4:3 */
+    overflow: hidden;    /* Giấu các ảnh đang nằm ngoài khung */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt */
+    height: 100%;
+}
+
+.slide-img {
+    width: 100%;
+    flex-shrink: 0;      /* Không cho ảnh bị co lại */
+    object-fit: cover;   /* Ảnh luôn lấp đầy khung */
+}
+
+/* Nút bấm */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 10px 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover { background: rgba(178, 34, 34, 0.8); }
+.prev { left: 5px; }
+.next { right: 5px; }
+
+
+/* FOOTER  */
 .main-footer {
     background-color: #121212;
     color: white;
@@ -914,7 +998,6 @@ section {
 }
 
 
-/* Cột phải */
 .footer-right {
     display: flex;
     flex-direction: column;

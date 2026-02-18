@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ha My</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="icon" type="image/png" href="/img/memex2.png">
+<body>
+<div class="container">
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="first-part"><a href="#" class="logo-link">NGUYEN THI</a> </span>
+                <span class="last-part"><a href="#" class="logo-link">HA MY</a></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">App Design</a></li>
+                    <li><a href="#">Visual Design</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact-popup" class="material-symbols-outlined">mail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="title-top">
+    <span class="vertical-text">DESIGNER</span>
+    PORTFOLIO
+    </h1>
+        
+        <div class="intro-text">
+            <div>Hi!<br>My name is <b>NGUYEN THI HA MY</b><br>I'm from Vietnam</div>
+            <img src="/img/profile.svg" alt="Ha My" class="my-photo">
+            <div>I'm <b>UX/UI and visual designer</b><br>Now I'm living in Japan.<br>This is my portfolio.</div>
+        </div>
+        <h1 class="designer-text">DESIGNER</h1>
+        <p class="line"></p>
+    </section>
+    <div id="contact-popup" class="overlay">
+    <div class="popup">
+        <h2>お問い合わせ</h2> <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+            ご質問やご依頼など、お気軽にご連絡ください。
+            <br>(For any queries or work requests, please contact me.)
+        </p>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form action="https://formspree.io/f/xnjzqegr" method="POST">
+            <input type="text" name="name" placeholder="お名前 ( Name)" required>
+            <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+            <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+            <button type="submit" class="btn-send">送信する</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<section class="about">
+  <div class="about-top">
+
+    <div class="about-box">
+        <h2 class="title-red">About me</h2>
+        <p>グエン ティ ハ ミー</p>
+        <p>2001/03/30</p>
+        <p>ベトナム出身</p>
+        <p>UX/UI & Visualデザイナー</p>
+    </div>
+
+    <div class="about-box">
+        <h2 class="title-red">Software</h2>
+        <div class="skill-item">
+            <div class="skill-label">
+                <img src="/img/Figma.svg" class="skill-icon"> 
+                <span>Figma</span>
+                <span class="percent">80%</span> 
+            </div>
+            <div class="bar-bg"><span class="bar-fill" style="--w: 80%;"></span></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label">
+                <img src="/img/Illustrator.svg" class="skill-icon">
+                <span>Illustrator</span>
+                <span class="percent">60%</span>
+            </div>
+            <div class="bar-bg"><span class="bar-fill" style="--w: 60%;"></span></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label">
+                <img src="/img/Photoshop.svg" class="skill-icon">
+                <span>Photoshop</span>
+                <span class="percent">60%</span>
+            </div>
+            <div class="bar-bg"><span class="bar-fill" style="--w: 60%;"></span></div>
+        </div>
+    </div> 
+    <div class="about-box">
+        <h2 class="title-red">Social media</h2>
+        <ul class="social-links">
+            <li><img src="/img/Social Icons.svg" class="social-icon"> Facebook</li>
+            <li><img src="/img/ig.svg" class="social-icon"> Instagram</li>
+            <li><img src="/img/behan.svg" class="social-icon"> Behance</li>
+        </ul>
+    </div>
+
+  </div> <div class="about-pr">
+      <h2>自己PR</h2>
+      <p>日本に留学して<strong>5年間</strong>、WEBデザインを学び、<span class="highlight">Figma・Illustrator・Photoshop</span>を使ったUIデザインやビジュアル制作に取り組んできました。特にFigmaを使ったワイヤーフレーム作成やプロトタイプ設計では、ユーザの目的を丁寧に分析し、分かりやすく、使いやすい構成を意識しています。</p>
+
+<p>一度作って終わりではなく、実施に使う人の立場に立ち、<strong>何度もテストと修正を重ねる</strong>ことで、より良い形に近づけることを大切にしています。ビジュアル制作の課題でも何度も先生、また周りの人にフィードバックをもらって、修正を繰り返し、最終的に先生から<span class="highlight">高い評価</span>をいただくことができました。<strong>JLPT N2</strong>を取得し、日本語での円滑のコミュニケーションも可能です。今後もスキルを磨き続け、努力を積み重ねながら、「伝わる・使いやすい」デザインを追求しています。</p>
+
+</div>
+
+<a href="#" class="btn">詳細はこちら <span class="icon"><img src="/img/next.svg" alt=""></span></a>
+  </div>
+</section>
+</div>
+
+<section class="new-index-section">
+    <div class="index-container">
+        
+        <div class="main-index-title">INDEX</div>
+        <p class="index-description">
+            Web Design, App Design, Visual Design における、これまでの制作実績をまとめたポートフォリオです。
+        </p>
+        <div class="expertise-box-grid">
+            
+            <a href="#web-projects" class="box-item">
+                <span class="box-num">01</span>
+                <h3>ウェブデザイン</h3>
+                <div class="box-line"></div>
+                <p>使いやすさと美しさを大切に、ブランドの魅力を伝えるホームページを制作します。</p>
+            </a>
+
+            <a href="#app-projects" class="box-item">
+                <span class="box-num">02</span>
+                <h3>アプリデザイン</h3>
+                <div class="box-line"></div>
+                <p>直感的に使える画面設計で、ユーザーが毎日使いたくなるようなアプリをデザインします。</p>
+            </a>
+
+            <a href="#visual-projects" class="box-item">
+                <span class="box-num">03</span>
+                <h3>ビジュアルデザイン</h3>
+                <div class="box-line"></div>
+                <p>ロゴやグラフィックを通じて、心に残るメッセージを形にします。</p>
+            </a>
+
+        </div>
+        <div class="enjoy">
+            <h2>Hope you enjoy it !</h2>
+        </div>
+    </div>
+</section>
+
+
+<!-- my project -->
+<section id="web-projects" class="my-project">
+    <div class="container-width">
+        
+        <div class="work-title-area">
+            <h2 class="main-work-title">
+                <span class="highlight">WEB</span> <span class="common-word">DESIGN</span>
+            </h2>
+            <p class="sub-work-text">Website / LP / Responsive</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 01</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 02</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 03</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 04</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 05</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="Work">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">WEB DESIGN</span>
+                            <h3>PROJECT NAME 06</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>DESIGNED BY HÀ MI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div> 
+    </div> 
+    </section>
+
+
+<!-- APPLICATION -->
+    <section id="app-projects" class="my-project">
+    <div class="container-width">
+        
+        <div class="work-title-area">
+            <h2 class="main-work-title">
+                <span class="highlight">APP</span> <span class="common-word">DESIGN</span>
+            </h2>
+            <p class="sub-work-text">Mobile App / UI UX / Prototype</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/app.png" alt="App Project 1">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">APP DESIGN</span>
+                            <h3>FINTECH APP</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>UI/UX DESIGN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/app.png" alt="App Project 2">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">APP DESIGN</span>
+                            <h3>E-HEALTH CARE</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2024</span>
+                                <span class="sep">•</span>
+                                <span>MOBILE DESIGN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="item-card">
+                <div class="img-box">
+                    <img src="/img/app.png" alt="App Project 3">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat">APP DESIGN</span>
+                            <h3>TRAVEL APP</h3>
+                            <div class="divider"></div>
+                            <div class="meta-data">
+                                <span>2023</span>
+                                <span class="sep">•</span>
+                                <span>CONCEPT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div> </div>
+</section>
+
+ <!-- VISUAL DESIGN -->
+ <section id="visual-projects" class="my-project" style="margin-top: 80px;">
+    <div class="container-width">
+        
+        <div class="work-title-area">
+            <h2 class="main-work-title">
+                <span class="highlight">VISUAL</span> <span class="common-word">DESIGN</span>
+            </h2>
+            <p class="sub-work-text">Poster / Branding / Banner</p>
+        </div>
+
+        <div class="visual-grid-4cols">
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Branding1</span>
+                            <h3>The Minimalist Identity</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Illustration2</span>
+                            <h3>Vibrant Dreams</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Mockup3</span>
+                            <h3>Stationery Pack</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Banner4</span>
+                            <h3>Neon Future</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Branding5</span>
+                            <h3>The Minimalist Identity</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Illustration6</span>
+                            <h3>Vibrant Dreams</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Mockup7</span>
+                            <h3>Stationery Pack</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Banner8</span>
+                            <h3>Neon Future</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Branding9</span>
+                            <h3>The Minimalist Identity</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Illustration10</span>
+                            <h3>Vibrant Dreams</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Mockup11</span>
+                            <h3>Stationery Pack</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="img-box">
+                    <img src="/img/mau.jpg" alt="">
+                    <div class="item-overlay">
+                        <div class="item-info">
+                            <span class="cat-tag">Banner12</span>
+                            <h3>Neon Future</h3>
+                            <p class="author-name">by [NGUYEN THI HA MY]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</section>
+
+
+</body>
+
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-left">
+            <div class="thank">
+                <h2 class="thanks-msg">Thank you for watching!</h2>
+                <p class="sub-msg">最後までご覧いただきありがとうございました。</p>
+            </div>
+
+            <div class="footer-contact-button">
+                <p class="label">CONTACT</p>
+                <p>ご質問やご依頼など、お気軽にご連絡ください。</p>
+
+                <div class="content">
+                    <form action="https://formspree.io/f/xnjzqegr" method="POST">
+                    <input type="text" name="name" placeholder="お名前 ( Name)" required>
+                    <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+                    <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+                    <button type="submit" class="btn-send">送信する</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-logo">
+                <span class="m-logo">M</span> PORTFOLIO
+            </div>
+            
+            <div class="social-zone">
+                <p class="label">FOLLOW ME</p>
+                <ul class="footer-social-list">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Behance</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 MY. All Rights Reserved. Based in Osakabe, Japan 🇯🇵</p>
+        <!-- <p class="footer-email-text">hamy2632001@gmail.com</p> -->
+
+    </div>
+</footer>
+</html>
