@@ -1,0 +1,155 @@
+/* Đảm bảo trang chi tiết có khoảng trống cho header cố định */
+body {
+    padding-top: 80px; /* Bằng với chiều cao của Header bà đã làm */
+}
+
+
+/* 1. Parallax Hero: Khi cuộn trang, ảnh nền trượt chậm */
+.detail-hero {
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 120%; /* Cao hơn 100% để có không gian trượt */
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    /* filter: brightness(0.6); */
+    /* Magic đây: bám sát chuyển động cuộn */
+    background-attachment: fixed; 
+}
+
+
+/* 1. CĂN CHỈNH GRID ĐỂ THẲNG HÀNG TUYỆT ĐỐI */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Tăng nhẹ độ rộng cột trái cho thoáng chữ */
+    gap: 100px;
+    padding: 100px 0;
+    align-items: start; /* Đảm bảo cả 2 cột hít lên đỉnh cùng lúc */
+}
+/* 2. CỘT TRÁI (INFO) - CHỈNH ĐẬM NHẠT */
+.project-main-title {
+    font-size: 36px;
+    font-weight: 800; /* Rất đậm để tạo điểm nhấn chính */
+    color: #121212;
+    line-height: 1.1;
+    margin-top: 10px !important; /* Khoảng cách nhỏ từ Category Tag xuống */
+    margin-bottom: 40px !important; /* Khoảng cách từ tên dự án xuống các mục info bên dưới */
+}
+
+/* Style cho cột bên trái (Sidebar) */
+.project-info {
+    position: sticky; /* Magic: Cuộn trang thì cột này bám theo (nếu nội dung dài) */
+    top: 120px;
+    height: fit-content;
+}
+.project-info .info-block p, 
+.project-info .project-main-title,
+.project-info .category-tag {
+    margin: 0; /* Xóa sạch khoảng cách mặc định */
+    padding: 0;
+}
+/* Triệt tiêu margin trên cùng của cả 2 tiêu đề */
+.project-main-title, 
+.about-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Triệt tiêu margin của cái tag phía trên tiêu đề trái */
+.category-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b22222; /* Màu đỏ thương hiệu của bà làm điểm nhấn nhạt hơn */
+    letter-spacing: 2px;
+}
+
+.info-block {
+    margin-bottom: 25px; /* Khoảng cách giữa các cụm info (Year, Role...) */
+}
+
+.info-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999; /* Màu xám nhạt hẳn để làm nền cho Info Value */
+    letter-spacing: 1.5px;
+    margin-bottom: 6px !important; /* Sát lại với nội dung bên dưới */
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 700; /* Chữ thông tin (2024, Design...) nên đậm hơn để dễ đọc */
+    color: #121212; /* Đen đậm */
+}
+
+.info-value a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #ccc; /* Gạch chân nhẹ nhàng */
+}
+
+/* Style cho cột bên phải */
+.about-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #121212;
+}
+
+.description-text p {
+    font-size: 18px;
+    line-height: 1.8; /* Khoảng cách dòng thoáng cho dễ đọc */
+    color: #555;
+    margin-bottom: 25px;
+}
+
+
+/* 3. Next Project Footer: Hover vào là ảnh nền hiện lên */
+.next-project-footer {
+    padding: 100px 0;
+    text-align: center;
+    background: #121212;
+    transition: 0.5s;
+}
+
+.next-link {
+    text-decoration: none;
+    color: white;
+}
+
+.next-title {
+    font-size: 60px;
+    font-weight: 900;
+    opacity: 0.5;
+    transition: 0.4s;
+}
+
+.next-link:hover .next-title {
+    opacity: 1;
+    letter-spacing: 5px; /* Magic: Chữ dãn ra khi hover */
+}
+
+/* 4. Reveal Image: Hiệu ứng ảnh hiện lên khi cuộn tới */
+.reveal-img {
+    width: 100%;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

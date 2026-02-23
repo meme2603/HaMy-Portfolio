@@ -1,0 +1,69 @@
+/* 1. Parallax Hero: Khi cuộn trang, ảnh nền trượt chậm */
+.detail-hero {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 120%; /* Cao hơn 100% để có không gian trượt */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: brightness(0.6);
+    /* Magic đây: bám sát chuyển động cuộn */
+    background-attachment: fixed; 
+}
+
+/* 2. Style Guide: Bảng màu hình tròn cho chuyên nghiệp */
+.color-row { display: flex; gap: 15px; margin-top: 10px; }
+.color-circle {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+/* 3. Next Project Footer: Hover vào là ảnh nền hiện lên */
+.next-project-footer {
+    padding: 100px 0;
+    text-align: center;
+    background: #121212;
+    transition: 0.5s;
+}
+
+.next-link {
+    text-decoration: none;
+    color: white;
+}
+
+.next-title {
+    font-size: 60px;
+    font-weight: 900;
+    opacity: 0.5;
+    transition: 0.4s;
+}
+
+.next-link:hover .next-title {
+    opacity: 1;
+    letter-spacing: 5px; /* Magic: Chữ dãn ra khi hover */
+}
+
+/* 4. Reveal Image: Hiệu ứng ảnh hiện lên khi cuộn tới */
+.reveal-img {
+    width: 100%;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

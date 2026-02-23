@@ -1,0 +1,388 @@
+/* Đảm bảo trang chi tiết có khoảng trống cho header cố định */
+body {
+    padding-top: 80px; /* Bằng với chiều cao của Header bà đã làm */
+}
+
+
+/* 1. Parallax Hero: Khi cuộn trang, ảnh nền trượt chậm */
+.detail-hero {
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 120%; /* Cao hơn 100% để có không gian trượt */
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    /* filter: brightness(0.6); */
+    /* Magic đây: bám sát chuyển động cuộn */
+    background-attachment: fixed; 
+}
+
+
+/* 1. CĂN CHỈNH GRID ĐỂ THẲNG HÀNG TUYỆT ĐỐI */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Tăng nhẹ độ rộng cột trái cho thoáng chữ */
+    gap: 100px;
+    padding: 120px 180px;
+    align-items: start; /* Đảm bảo cả 2 cột hít lên đỉnh cùng lúc */
+}
+/* 2. CỘT TRÁI (INFO) - CHỈNH ĐẬM NHẠT */
+.project-main-title {
+    font-size: 36px;
+    font-weight: 800; /* Rất đậm để tạo điểm nhấn chính */
+    color: #121212;
+    line-height: 1.1;
+    margin-top: 10px !important; /* Khoảng cách nhỏ từ Category Tag xuống */
+    margin-bottom: 40px !important; /* Khoảng cách từ tên dự án xuống các mục info bên dưới */
+}
+
+/* Style cho cột bên trái (Sidebar) */
+.project-info {
+    position: sticky; /* Magic: Cuộn trang thì cột này bám theo (nếu nội dung dài) */
+    top: 120px;
+    height: fit-content;
+}
+.project-info .info-block p, 
+.project-info .project-main-title,
+.project-info .category-tag {
+    margin: 0; /* Xóa sạch khoảng cách mặc định */
+    padding: 0;
+}
+/* Triệt tiêu margin trên cùng của cả 2 tiêu đề */
+.project-main-title, 
+.about-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Triệt tiêu margin của cái tag phía trên tiêu đề trái */
+.category-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b22222; /* Màu đỏ thương hiệu của bà làm điểm nhấn nhạt hơn */
+    letter-spacing: 2px;
+}
+
+.info-block {
+    margin-bottom: 25px; /* Khoảng cách giữa các cụm info (Year, Role...) */
+}
+
+.info-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999; /* Màu xám nhạt hẳn để làm nền cho Info Value */
+    letter-spacing: 1.5px;
+    margin-bottom: 6px !important; /* Sát lại với nội dung bên dưới */
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700; /* Chữ thông tin (2024, Design...) nên đậm hơn để dễ đọc */
+    color: #121212; /* Đen đậm */
+}
+
+/* 3. CỘT PHẢI (DESCRIPTION) - CHỈNH KHOẢNG CÁCH HÀNG */
+.about-title {
+    font-size: 44px; /* To hơn Title trái một chút vì nó là tiêu đề đoạn văn */
+    font-weight: 700;
+    margin-bottom: 35px;
+    line-height: 1.2;
+    /* Không cần margin-top vì Grid align-items: start đã lo rồi */
+}
+
+.description-text p {
+    font-size: 18px;
+    line-height: 1.8; /* Khoảng cách dòng thoáng để người ta đọc không bị mỏi mắt */
+    color: #444; /* Màu xám đậm vừa phải, không quá đen gây gắt mắt */
+    margin-bottom: 30px; /* Khoảng cách giữa các đoạn văn */
+}
+
+.info-value a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #ccc; /* Gạch chân nhẹ nhàng */
+}
+
+
+
+
+
+/* 3. Next Project Footer: Hover vào là ảnh nền hiện lên */
+.next-project-footer {
+    padding: 100px 0;
+    text-align: center;
+    background: #121212;
+    transition: 0.5s;
+}
+
+.next-link {
+    text-decoration: none;
+    color: white;
+}
+
+.next-title {
+    font-size: 60px;
+    font-weight: 900;
+    opacity: 0.5;
+    transition: 0.4s;
+}
+
+.next-link:hover .next-title {
+    opacity: 1;
+    letter-spacing: 5px; /* Magic: Chữ dãn ra khi hover */
+}
+
+/* 4. Reveal Image: Hiệu ứng ảnh hiện lên khi cuộn tới */
+.reveal-img {
+    width: 100%;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ALL PAGE */
+.design-showcase {
+    padding: 150px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Tiêu đề DESIGN to bản */
+.visual-header-large {
+    max-width: 1200px;
+    margin: 0 auto -120px auto;
+    padding: 0 20px;
+}
+
+.visual-header-large h2 {
+    font-size: 14px; /* Cực to như trang mẫu */
+    margin: 0 0 15px 0;
+    letter-spacing: 3px;
+    color: #b22222; /* Màu chữ mờ mờ ở dưới */
+    position: relative;
+    text-align: center;
+}
+
+.sub-visual-title {
+    font-size: 80px;
+    color: #121212;
+    text-align: center;
+    margin-top: 10px; 
+    margin-bottom: 0 !important; /* QUAN TRỌNG: Diệt sạch margin dưới của chữ này */
+    line-height: 1.1; /* Thu hẹp độ cao dòng để nó không chiếm chỗ dư */
+}
+
+/* 3. Xử lý cái khung chứa ảnh Mockup */
+.visual-content {
+    margin-top: 0 !important; /* Ép nó hít lên trên */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 0; 
+}
+
+.visual-content .img-wrap.full {
+    margin-top: 0 !important; /* Đảm bảo cái wrap ảnh không đẩy lên */
+}
+
+/* Layout Ảnh */
+.visual-content-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Khoảng cách giữa các cột */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách giữa các ảnh trong cùng một cột */
+}
+
+.img-wrap {
+    width: 100%;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Có thể thêm border nhẹ nếu ảnh của bà trùng màu nền web */
+    /* border: 1px solid #f0f0f0; */
+}
+
+/* Responsive: Mobile thì xếp 1 hàng cho đỡ nhỏ ảnh */
+@media (max-width: 768px) {
+    .visual-content-triple {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .column {
+        gap: 20px;
+    }
+}
+
+/* 1. Nền tối sâu thẳm */
+.design-showcase-dark {
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -120px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+/* 2. Lớp mặt nạ Gradient sang chảnh (Che phần trên và dưới) */
+.design-showcase-dark::before,
+.design-showcase-dark::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 200px; /* Độ rộng của vùng mờ */
+    z-index: 10;
+    pointer-events: none; /* Để người dùng vẫn cuộn chuột bình thường được */
+}
+
+.design-showcase-dark::before {
+    top: 0;
+    background: linear-gradient(to bottom, #121212 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+.design-showcase-dark::after {
+    bottom: 0;
+    background: linear-gradient(to top, #121212 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+/* 3. Hiệu ứng cho các tấm ảnh có "Chiều sâu" */
+.design-showcase-dark .img-wrap {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Đổ bóng mạnh trên nền tối */
+    border-radius: 4px; /* Bo góc cực nhẹ cho tinh tế */
+}
+
+/* Hiệu ứng Hover - Ảnh nổi lên như 3D */
+.design-showcase-dark .img-wrap:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 50px 80px rgba(0,0,0,0.8);
+    z-index: 11;
+}
+
+/* Chỉnh lại độ dãn của 3 cột cho thoáng */
+.design-showcase-dark .visual-content-triple {
+    max-width: 1300px;
+    gap: 40px; /* Tăng khoảng cách để thấy được chiều sâu từng tấm */
+}
+
+
+
+/* GRAPHIC */
+
+/* Container chính */
+.graphic-gallery-section {
+    padding: 120px 0;
+    background-color: #fcfcfc; /* Màu nền hơi kem nhẹ cho sang */
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Tiêu đề mới */
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.gallery-tag {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b22222; /* Màu đỏ nhấn */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.gallery-main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+/* Layout 3 cột */
+.gallery-triple-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    align-items: center; /* Căn giữa theo chiều dọc để 2 card nằm lọt lòng chiều cao poster */
+}
+
+.gallery-item-col {
+    width: 100%;
+}
+
+/* Box chứa ảnh */
+.media-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+/* Đổ bóng kiểu Studio cho Poster */
+.poster-shadow {
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1), 
+                -5px -5px 20px rgba(255,255,255,0.5);
+}
+
+/* Cột giữa: 2 Card xếp chồng nghệ thuật */
+.stack-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.card-item-top, .card-item-bottom {
+    width: 100%;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Hover hiệu ứng */
+.media-box:hover img {
+    transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .gallery-triple-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .gallery-main-title { font-size: 32px; }
+}

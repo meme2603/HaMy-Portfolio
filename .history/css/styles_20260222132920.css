@@ -1,0 +1,1271 @@
+/* CSS CƠ BẢN */
+body { 
+    margin: 0; 
+    font-family: "Akshar", sans-serif;
+    background-color: #f9f9f9; 
+    color: #000; 
+     padding-top: 80px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 16px; 
+}     
+/* HEADER - THANH MENU */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+header {
+    position: fixed;    /* Ghim cố định một chỗ */
+    top: 0;             /* Sát mép trên cùng */
+    left: 0;            /* Sát mép trái */
+    width: 100%;        /* Trải dài hết màn hình */
+    z-index: 999;       /* Đảm bảo nó luôn nằm TRÊN CÙNG, không bị các ảnh khác đè lên */
+    
+    /* Thêm một chút hiệu ứng cho sang nè */
+    background-color: rgba(255, 255, 255, 0.9); /* Màu trắng hơi trong suốt để thấy mờ mờ nội dung phía dưới khi lướt */
+    backdrop-filter: blur(10px);               /* Làm mờ hậu cảnh phía sau header (cực sang luôn) */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);   /* Đổ bóng nhẹ để tách biệt với thân trang web */
+    
+    padding: 1px 5%;   /* Chỉnh lại khoảng cách cho cân đối */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+}
+.nav-container {
+    /* Bà thử thay đổi con số này xem */
+    max-width: 1200px; /* Tăng lên nếu muốn tụi nó dạt ra 2 bên nhiều hơn */
+    /* Hoặc */
+    /* max-width: 90%; */ /* Tụi nó sẽ luôn chiếm 90% chiều ngang màn hình */
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+.nav-container {
+    max-width: none; /* Bỏ giới hạn cũ */
+    width: 100%;
+    padding: 15px 16%; /* Con số 10% này phải bằng với lề của nội dung bên dưới */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.logo {
+    margin-left: -150px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 32px;
+    display: flex;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden; /* Để không bị lộ chữ khi đang giấu */
+}
+.logo a{
+    text-decoration: none;
+    color: #b22222;
+}
+/* Phần chữ NGUYEN THI (ban đầu giấu đi) */
+.first-part {
+    max-width: 0;      /* Chiều rộng bằng 0 */
+    opacity: 0;        /* Trong suốt */
+    display: inline-block;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); /* Hiệu ứng co giãn xịn */
+    margin-right: 0;   /* Không có khoảng cách */
+}
+
+/* Phần chữ HA MY (luôn hiện) */
+.last-part {
+    display: inline-block;
+    transition: all 1s ease;
+}
+
+/* KHI HOVER VÀO */
+.logo:hover .first-part {
+    max-width: 200px;  /* Đủ rộng để hiện chữ NGUYEN THI */
+    opacity: 1;        /* Hiện rõ lên */
+    margin-right: 8px; /* Tạo khoảng cách với chữ HA MY */
+}
+
+/* Một chút hiệu ứng màu cho xịn */
+.logo:hover {
+    color: #b22222; /* Đổi sang màu đen khi hiện tên đầy đủ (tùy bà thích nha) */
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    
+}
+nav a { 
+    margin-left: 24px; 
+    text-decoration: none; 
+    color: #b22222; 
+    font-size: 20px; 
+    font-weight: 200; 
+    
+}
+nav a {
+    position: relative; /* Quan trọng: Để làm điểm tựa cho cái line */
+    padding-bottom: 5px; /* Tạo khoảng cách nhỏ giữa chữ và gạch chân */
+}
+
+/* Tạo cái line ẩn nằm dưới chữ */
+nav a::after {
+    content: ""; /* Bắt buộc phải có để hiện phần tử giả */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;        /* Ban đầu chiều dài bằng 0 (ẩn đi) */
+    height: 2px;     /* Độ dày của cái line */
+    background-color: #b22222; /* Màu của cái line */
+    transition: width 0.3s ease; /* Hiệu ứng chạy mượt trong 0.3 giây */
+}
+
+/* Khi hover vào: line sẽ dài ra 100% */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Lớp phủ đen mờ toàn màn hình */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Màu đen trong suốt */
+    transition: opacity 500ms;
+    visibility: hidden; /* Bình thường thì ẩn */
+    opacity: 0;
+    z-index: 999;
+}
+
+/* Khi nhấn vào link có href="#contact-popup" thì hiện lên */
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Khung bảng liên hệ */
+.popup {
+    margin: 70px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    width: 30%; /* Độ rộng của bảng */
+    min-width: 300px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+}
+
+.popup h2 {
+    color: #b22222;
+    margin-top: 0;
+}
+
+/* Nút đóng (X) */
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style cho các ô nhập liệu */
+form input, form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Giữ form không bị tràn */
+}
+
+form textarea { height: 100px; resize: none; }
+
+/* Nút gửi */
+.btn-send {
+    background: #b22222;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover { 
+    background: #000; 
+}
+
+
+/* HERO SECTION - PHẦN ĐẦU TRANG */
+.hero { 
+    position: relative; 
+    text-align: center; 
+    padding: 24px 0; 
+}
+.hero h1 { 
+    font-size: 200px; 
+    font-weight: 900; 
+    margin: 0; 
+    line-height: 0.8; 
+    letter-spacing: 14px; 
+}
+
+.title-top {
+    position: relative; /* Làm mỏ neo cho chữ dọc */
+    z-index: 1;
+    font-size: 100px; /* Chỉnh theo size bà đang để */
+    font-weight: 900;
+    line-height: 1;
+}
+
+.vertical-text {
+    position: absolute;
+    left: 48px;      /* Đẩy sang bên trái của chữ Portfolio */
+    top: 40%;         /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%) rotate(-90deg); /* Xoay ngược 90 độ */
+    
+    font-size: 14px;  /* Chữ nằm dọc thường nhỏ thôi mới xinh */
+    letter-spacing: 10px; /* Giãn cách chữ cho sang */
+    color:  white;   /* Màu đỏ tone-sur-tone của bà */
+    font-weight: normal;
+    white-space: nowrap;
+}
+.hero .designer-text { 
+    color: #9C0000; 
+    font-size: 200px; 
+    position: relative;
+    margin-top: -124px; 
+    z-index: 1;
+    /* Đổ bóng: X=9px, Y=6px, Màu=#121212 */
+    text-shadow: 9px 6px 0px #121212; 
+    
+    /* Nếu bà muốn bóng nó mờ nhẹ một chút cho tự nhiên thì dùng dòng dưới này: */
+    /* text-shadow: 9px 6px 4px #121212; */
+}
+.line{
+    background-color: #121212;
+    width: 100%;
+    height: 65px;
+    position: relative;
+    margin-top: -76px;
+}
+        
+/* Chèn ảnh của bạn vào đây */
+.my-photo { 
+    width: 500px; 
+    height: auto; 
+    margin: 40px 0; 
+    border-radius: 10px; 
+}
+.my-photo{
+    filter: grayscale(80%) brightness(0.8);
+    transform: scale(1);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.intro-text:hover img{
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.1); /* Phóng to nhẹ */
+}
+
+.intro-text { 
+    display: flex; 
+    justify-content: space-around; 
+}
+.intro-text div{
+    margin-top: 200px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+
+/* LAYOUT 3 CỘT (CSS CƠ BẢN) */
+/* 1. Tạo khoảng cách cho toàn bộ section */
+.about {
+    padding: 48px 0;
+}
+
+/* 2. Ép nội dung nằm trong khung 1200px (để không bị tràn màn hình) */
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. Lệnh Flexbox: Biến about-top thành hàng ngang */
+.about-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* QUAN TRỌNG: Ép tất cả các cột phải bắt đầu từ đỉnh */
+    gap: 96px; 
+    margin-bottom: 60px;
+}
+
+/* 4. Ép 3 cái box luôn có độ rộng bằng nhau (33%) */
+.about-box {
+    flex: 1; 
+    min-width: 0; /* Giúp nội dung bên trong tự co lại, không làm vỡ cột */
+}
+.about-box p, .about-box li, .skill-label {
+    line-height: 1.5; /* Tất cả các dòng đều cao bằng nhau */
+    margin: 0;
+    padding: 3px 0; /* Dùng padding để tạo khoảng cách thay vì margin cho dễ kiểm soát */
+}
+
+/* Tiêu đề đỏ có gạch chân */
+.title-red {
+    display: block; /* Ép tiêu đề nằm riêng một hàng */
+    width: fit-content; /* Gạch chân chỉ dài bằng chữ */
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 3px solid #b22222;
+    margin-bottom: 32px; /* Khoảng cách từ tiêu đề xuống nội dung phải bằng nhau ở cả 3 cột */
+    /* padding-bottom: 3px; */
+}
+
+/* Chỉnh chữ trong About Me cho thoáng */
+.about-box p {
+    margin-bottom: 12px;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+.skill-item {
+    display: flex;          /* Chia làm 2 cột: Logo và Info */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    gap: 16px;              /* Khoảng cách giữa logo và chữ */
+    margin-bottom: 18px;    /* Khoảng cách giữa các phần mềm */
+}
+
+.skill-icon {
+    width: 40px;            /* Tăng size logo lên một chút để làm chuẩn chiều cao */
+    height: 40px;
+    object-fit: contain;
+}
+
+.skill-info {
+    display: flex;
+    flex-direction: column; /* Cho tên và mô tả xếp chồng lên nhau */
+    justify-content: center; /* Căn giữa nội dung trong chiều cao của logo */
+}
+
+.skill-info strong {
+    font-size: 18px;     /* Tên phần mềm */
+    line-height: 1.2;
+    color: #121212;
+}
+
+.skill-info .skill-desc {
+    font-size: 0.75rem;     /* Mô tả nhỏ lại để bằng chiều cao logo */
+    color: #666;
+    margin: 0;              /* Bỏ margin mặc định của thẻ p */
+    line-height: 1.2;
+}
+
+.social-links {
+    list-style: none; /* Bỏ dấu chấm đầu dòng mặc định */
+    padding: 0;
+}
+
+.social-links li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.social-links img {
+    width: 32px;
+    height: 32px;
+}
+.social-links a {
+    text-decoration: none;
+    color: #666;
+    transition: 0.3s;
+}
+.social-links a:hover {
+    color: #9C0000; /* Rê chuột vào hiện màu đỏ thương hiệu của bà */
+    padding-left: 5px; /* Hiệu ứng nhích nhẹ sang phải */
+}
+
+
+/* PR + BUTTON */
+.about-pr{
+    padding: 0 20px;
+    max-width: 1125px;
+    margin: 0 auto;
+}
+.about-pr h2{
+    padding: 0 20px;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 auto;
+}
+.about-pr h4{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 16px;
+}
+.about-pr p{
+    text-align: left;
+    line-height: 1.5;
+    color: #121212;
+    margin-bottom: 16px;
+    /* margin-top: 24px; */
+    font-size: 18px;
+    letter-spacing: 0.3;
+    word-break: keep-all; 
+    overflow-wrap: anywhere;
+}
+/* Màu đỏ thương hiệu của bà để nhấn mạnh */
+.highlight {
+    color: #b22222; 
+    font-weight: bold;
+}
+
+/* index */
+/* Thiết lập chung cho trang mượt mà */
+html { scroll-behavior: smooth; }
+
+.new-index-section {
+    padding: 80px 0;
+    background-color: #fafafa; /* Nền xám cực nhẹ cho sang */
+}
+
+.index-container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Chữ INDEX */
+.main-index-title {
+    font-size: 42px;
+    letter-spacing: 6px;
+    color:  #121212;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: left;
+    position: relative;
+    letter-spacing: -0.1px;
+}
+.index-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 50px;
+    /* Dòng dưới này quan trọng để máy tính hiện font Nhật đẹp nè */
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em; /* Dãn chữ ra một chút cho thoáng */
+}
+
+/* Làm nổi bật mấy cái tên mảng một tí */
+.index-description {
+    opacity: 0.9;
+}
+/* Lưới 3 cột */
+.expertise-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Style cho từng cái hộp */
+.box-item {
+    background: #ffffff;
+    padding: 45px 35px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: all 0.4s ease; /* Hiệu ứng mượt */
+}
+
+/* Số 01, 02, 03 */
+.box-num {
+    color: #b22222;
+    font-size: 32px;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.box-item h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.box-line {
+    width: 30px;
+    height: 2px;
+    background: #b22222;
+    margin-bottom: 25px;
+    transition: width 0.4s ease;
+}
+
+.box-item p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+    margin: 0;
+}
+
+/* HIỆU ỨNG KHI RÊ CHUỘT (HOVER) */
+.box-item:hover {
+    transform: translateY(-12px); /* Bay lên */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1); /* Đổ bóng cực xịn */
+    border-color: #b22222; /* Đổi viền sang đỏ */
+}
+
+.box-item:hover .box-line {
+    width: 60px; /* Đường kẻ dài ra */
+}
+.enjoy {
+    text-align: center;
+    margin-top: 80px;      /* Tạo khoảng cách lớn với 3 cái hộp phía trên */
+    padding-top: 40px;     /* Khoảng cách bên trong từ vạch kẻ đến chữ */
+    position: relative;
+}
+
+/* Thêm một cái vạch kẻ ngang mờ mờ phía trên chữ cho sang */
+.enjoy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;          /* Độ dài vạch kẻ */
+    height: 1px;
+    background-color: #eee; /* Màu xám rất nhạt */
+}
+
+.enjoy h2 {
+    color: #b22222;        /* Màu đỏ bà thích */
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+/* Mobile: Xếp 1 hàng dọc khi xem điện thoại */
+@media (max-width: 900px) {
+    .expertise-box-grid { grid-template-columns: 1fr; }
+}
+
+/* MY PROJECT */
+
+/* Triệt tiêu khoảng cách mặc định của Section */
+section {
+    margin: 0;
+    padding: 60px 0; /* Chỉ để padding trên dưới để giãn chữ, không để margin */
+}
+
+.work-title-area {
+    margin-bottom: 40px;
+    text-align: left; /* Bà muốn để bên trái hay ở giữa? Tạm thời tui để bên trái cho sang nha */
+}
+
+.main-work-title {
+    font-size: 42px; /* Cho title to rõ, quyền lực luôn */
+    font-weight: 900;
+    letter-spacing: -1px; /* Cho chữ hơi sát lại nhìn rất hiện đại */
+}
+
+/* Chữ WEB - Màu đỏ đặc trưng */
+.main-work-title .highlight {
+    color: #b22222;
+}
+
+/* Chữ DESIGN - Màu đỏ nhưng mờ đi (Opacity thấp) */
+.main-work-title .common-word {
+    color: rgba(178, 34, 34, 0.674); /* Số 0.25 này là độ mờ, bà muốn rõ hơn thì tăng lên 0.4 nhé */
+}
+
+/* Dòng Website / LP / Responsive */
+.sub-work-text {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 3px;
+    text-transform: uppercase; /* Cho in hoa hết nhìn cho chuyên nghiệp */
+    font-weight: 500;
+}
+.my-project {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+/* Tái sử dụng cái container-width bà đang dùng ở phần Index */
+.container-width {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Style cho Title (giữ nguyên cái Đậm - Nhạt) */
+.work-title-area {
+    margin-bottom: 60px;
+}
+
+.main-work-title {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.main-work-title .highlight { color: #b22222; }
+.main-work-title .common-word { color: rgba(178, 34, 34, 0.25); }
+
+.sub-work-text {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Giữ nguyên layout grid hôm qua bà thích */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    gap: 40px;
+}
+/* KHU VỰC CHIA LAYOUT (DÀN HÀNG NGANG) */
+.grid-container {
+    display: grid;              /* Bật chế độ chia ô (Grid) */
+    grid-template-columns: repeat(3, 1fr); /* Chia đúng 3 cột bằng nhau (1fr là 1 phần) */
+    gap: 40px 30px;                  /* Khoảng cách giữa các ô sản phẩm */
+    width: 100%;                 
+    max-width: 1400px;          /* Không cho rộng quá mức trên màn hình lớn */
+    margin: 0;          /* Căn giữa toàn bộ khối sản phẩm */
+    padding: 0;
+}
+
+/* KHU VỰC KHUNG CHỨA SẢN PHẨM (CARD) */
+.item-card {
+    text-decoration: none;      /* Bỏ gạch chân của link */
+    display: block;             /* Biến cả cái card thành một khối để click được */
+    position: relative;         /* Làm gốc tọa độ để lớp Overlay bám vào */
+    overflow: hidden;           /* Cái gì lòi ra ngoài khung (như ảnh phóng to) sẽ bị cắt bỏ */
+    border-radius: 8px;         /* Bo góc nhẹ cho cái card nhìn tinh tế */
+}
+
+/* Khung chứa ảnh để ép tỉ lệ */
+.img-box {
+    position: relative;
+    aspect-ratio: 4/5;          /* Ép ảnh luôn là hình chữ nhật đứng (nghệ thuật) */
+    background: #000;           /* Nền đen để lúc ảnh mờ đi nhìn sang hơn */
+}
+
+.img-box img {
+    width: 100%;                /* Ảnh rộng hết khung */
+    height: 100%;               /* Ảnh cao hết khung */
+    object-fit: cover;          /* Giúp ảnh không bị méo, tự cắt cúp cho vừa khung */
+    transition: 0.8s ease;   /* Hiệu ứng mượt khi phóng to và mờ đi */
+    aspect-ratio: 4/5;          /* Giữ tỉ lệ ảnh cố định */
+} 
+
+
+/* ============================================================
+   KHU VỰC THÔNG TIN (OVERLAY) - MẶC ĐỊNH LÀ TÀNG HÌNH
+   ============================================================ */
+.item-overlay {
+    position: absolute;         /* Đè lên trên cái ảnh */
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; /* Tạo màu đỏ Gradient mờ dần từ dưới lên */
+    background: linear-gradient(to top,rgba(0, 0, 0, 0.75), transparent);
+    display: flex;
+    align-items: center; 
+    justify-content: center;     /* Đẩy toàn bộ chữ xuống dưới đáy */
+    padding: 0;  /* Khoảng cách từ chữ đến mép khung */
+    opacity: 0;                 /* MẶC ĐỊNH: Tàng hình */
+    transition: 0.4s ease; /* Thời gian hiện hình khi hover */
+    overflow: hidden;      
+}
+
+.item-info {
+    text-align: center;
+    transform: translateY(20px); /* Đẩy xuống ít thôi, tầm 15-20px là đủ đẹp rồi */
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); /* Cho hiệu ứng bay mượt hơn */
+    width: 100%;
+    left: 0;
+    padding: 0 20px; /* Tạo khoảng cách an toàn 2 bên lề chữ */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng hộp */
+}
+
+
+/* Chỉnh chữ Category (Lĩnh vực) */
+.item-info .cat {
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    letter-spacing: 2px;        /* Dãn khoảng cách giữa các chữ cái */
+    text-transform: uppercase;  /* Viết hoa toàn bộ */
+}
+
+/* Chỉnh chữ Tên dự án (H3) */
+.item-info h3 {
+    color: #fff;
+    font-size: 22px;
+    margin: 10px 0;
+    font-weight: 800;           /* Độ đậm của chữ */
+}
+
+/* Đường kẻ trang trí */
+.item-info .divider {
+   height: 2px;
+    background: #fff;
+    margin: 0 auto 15px;       /* auto ở trái-phải để căn giữa */
+    width: 0;                  /* Giữ nguyên để hover thì dài ra */
+    transition: 0.5s 0.2s;     /* 0.5s là thời gian chạy, 0.2s là đợi chữ hiện xong mới chạy */
+}
+
+/* Thông tin Năm và Người làm */
+.meta-data {
+    color: #fff;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;   /* Căn giữa nội dung flex */
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+    width: 100%;
+}
+.item-card{
+    margin-bottom: 10px;
+}
+
+/* ============================================================
+   KHU VỰC HIỆU ỨNG KHI RÊ CHUỘT (HOVER)
+   ============================================================ */
+
+/* Khi hover vào Card -> Hiện Overlay đỏ lên */
+.item-card:hover .item-overlay {
+    opacity: 1;
+}
+
+/* Khi hover vào Card -> Chữ bay lên vị trí cũ (0px) */
+.item-card:hover .item-info {
+    transform: translateY(0);
+}
+
+/* Khi hover vào Card -> Đường kẻ dài ra 40px */
+.item-card:hover .divider {
+    width: 40px;
+}
+/* WEB DESIGN NEW */
+/* 1. Khung chứa phải đủ cao để không bị cắt mất card */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 850px; /* Tăng chiều cao lên để chứa card 1100px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 2. Cấu hình Card to hơn */
+.project-card {
+    position: absolute;
+    width: 1100px; /* Size to đại cho bà nè */
+    background: #fff;
+    border-radius: 40px; /* Bo góc mạnh nhìn cho sang */
+    padding: 35px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: 1;
+
+    /* Khóa vị trí ở chính giữa màn hình */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* --- TRẠNG THÁI CỦA 3 CARD --- */
+
+/* CARD Ở GIỮA - To nhất, rõ nhất */
+.project-card.active {
+    opacity: 1;
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* CARD BÊN TRÁI - Lộ diện bên cạnh */
+.project-card.prev {
+    opacity: 0.4;
+    z-index: 5;
+    /* Đẩy sang trái - số 90% này bà có thể tăng giảm để chỉnh độ lộ diện */
+    transform: translate(-130%, -50%) scale(0.8); 
+}
+
+/* CARD BÊN PHẢI - Lộ diện bên cạnh */
+.project-card.next {
+    opacity: 0.4;
+    z-index: 5;
+    /* Đẩy sang phải tương ứng */
+    transform: translate(30%, -50%) scale(0.8); 
+}
+
+/* --- NỘI DUNG BÊN TRONG CARD --- */
+
+.card-header {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+    /* margin-bottom: 25px; */
+}
+
+.mini-avatar {
+    width: 60px; /* Tăng size avatar cho cân bằng với card to */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.project-title {
+    font-size: 24px; /* Tên sản phẩm to lên */
+    font-weight: 800;
+    color: #222;
+}
+
+.card-image {
+    width: 100%;
+    height: 550px; /* Tăng chiều cao ảnh để show được nhiều nội dung Figma hơn */
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+/* 2. Cụm chữ bên phải */
+.header-text {
+    display: flex;
+    flex-direction: column; /* Tên sản phẩm nằm dưới tên bà */
+    text-align: left;       /* Căn lề trái */
+}
+
+.author-name {
+    font-size: 16px;
+    color: #888;           /* Màu xám nhẹ cho tên người làm */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+/* Khi hover vào Card -> Ảnh to ra một tí (Scale 1.1) và mờ đi (Opacity 0.7) */
+.item-card:hover img {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+/* VISUAL DESIGN */
+/* Container chung cho Visual */
+.vs-wrapper {
+    margin-top: 80px;
+    padding-bottom: 50px;
+}
+
+.vs-label {
+    font-size: 1.2rem;
+    color: #b22222; /* Màu đỏ của bà */
+    margin: 40px 0 20px;
+    font-weight: bold;
+}
+
+/* Grid cho Banner - 2 cái 1 hàng */
+.vs-grid-banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 100px;
+}
+
+/* Grid cho Poster - 3 cái 1 hàng (hoặc 4 tùy bà) */
+.vs-grid-poster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px 25px;
+    margin-bottom: 50px;
+}
+
+/* Khung card chung */
+.vs-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Box riêng cho Banner: Tỉ lệ ngang */
+.vs-box-banner {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Dáng nằm ngang */
+    background: #f0f0f0;
+}
+
+/* Box riêng cho Poster: Tỉ lệ đứng */
+.vs-box-poster {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Dáng đứng */
+    background: #f0f0f0;
+}
+
+/* Ảnh trong box */
+.vs-box-banner img, .vs-box-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Hiện toàn bộ ảnh, không mất chữ */
+    display: block;
+}
+
+/* Hiệu ứng Overlay (Giữ nguyên style cũ của bà nhưng đổi tên class) */
+.vs-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+
+.vs-card:hover .vs-overlay {
+    opacity: 1;
+}
+.vs-card:hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+    transform: translateY(-8px); /* Nhích lên */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Đổ bóng mạnh hơn */
+}
+
+.vs-info {
+    text-align: center;
+    color: white;
+}
+
+.vs-tag {
+    font-size: 0.8rem;
+    background: white;
+    color: #b22222;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+
+/* About-extra */
+
+.about-me-extra {
+    padding: 40px 0;
+    background-color: #F9F7F2;
+    /* border-top: 1px solid #eee; */
+}
+
+.container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Phần Intro 2 cột */
+.personal-intro {
+   display: flex;             /* Kích hoạt flexbox */
+    align-items: flex-start;   /* Căn ảnh và chữ lên đầu */
+    gap: 40px;                 /* Khoảng cách giữa ảnh và chữ */
+    margin-bottom: 60px;       /* Khoảng cách với phần 3 cột ở dưới */
+    text-align: left;          /* Đảm bảo toàn bộ chữ căn trái */
+}
+
+.avatar img {
+    width: 300px; 
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho sang */
+}
+.my-story h2{
+   font-size: 2.5rem;
+   letter-spacing: 5px;
+    color: #b22222;            /* Màu đỏ thương hiệu của bà */
+    margin-bottom: 10px;
+    margin-top: 0;             /* Bỏ khoảng trống phía trên */
+    text-align: left;          /* Chắc chắn là căn trái */
+}
+
+.my-story p{
+    font-size: 18px;
+    line-height: 2;          /* Giãn dòng cho dễ đọc */
+    color: #333;
+    text-align: justify;
+    word-break: keep-all; 
+    overflow-wrap: anywhere;
+}
+/* 1. Tiêu đề to chính giữa (Chỉ tiêu đề "自分については") */
+.container-inner > h2 {
+    /* padding: 0 20px; */
+    text-align: center; /* Vẫn giữ căn giữa cho tiêu đề chính */
+    font-size: 40px;
+    margin-bottom: 70px;
+}
+
+/* Phần 3 cột phía dưới */
+.triple-columns {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.info-col {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.info-col:hover {
+    transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ khi rê chuột */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sub-title-black {
+    font-size: 1.1rem;
+    color: #121212;
+    margin-bottom: 15px;
+    border-left: 4px solid #b22222; /* Thêm vạch đỏ bên trái cho chất */
+    padding-left: 10px;
+}
+
+.info-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .personal-intro, .triple-columns {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* slide */
+/* Container chính của slider */
+.slider-container {
+    position: relative;
+    overflow: hidden; /* Giấu các slide bên ngoài */
+    /* border-radius: 15px; */
+    /* background: #fff; */
+    /* box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+    margin-bottom: 10px;
+}
+
+/* Wrapper chứa các slide dàn hàng ngang */
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt mượt */
+}
+/* Từng khung slide (Ảnh + Chữ) */
+.slide-item {
+    min-width: 100%; /* Mỗi slide chiếm trọn 1 cột */
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+    padding-bottom: 15px;
+}
+.slide-img {
+    width: 100%;
+    height: 300px; /* Chiều cao cố định cho đều */
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+.slide-caption {
+    padding: 15px 10px 5px;
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0;
+    min-height: 50px; /* Giữ chiều cao cho text không bị nhảy */
+}
+/* Nút bấm */
+/* Style cho nút Prev/Next */
+.prev, .next {
+    position: absolute;
+    top: 40%; /* Nằm giữa phần ảnh */
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    font-size: 18px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prev:hover, .next:hover {
+    background: #b22222; /* Màu đỏ thương hiệu của bà */
+    color: #fff;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* FOOTER  */
+.main-footer {
+    background-color: #121212;
+    color: white;
+    padding: 24px 10%; /* Thụt vào 10% hai bên cho đẹp */
+    margin-top: 16px;
+}
+
+/* Chia 2 cột bằng Grid */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Cột trái to hơn cột phải một chút */
+    gap: 50px;
+    text-align: left; /* Chữ cột trái căn trái */
+    margin-bottom: 24px; 
+}
+.thank{
+    line-height: 0.5;
+}
+/* Cột trái */
+.thanks-msg {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.footer-contact-button {
+    margin-top: 32px;
+}
+.footer-contact-button .label{
+    font-size: 24px;
+    color: #9C0000;
+}
+
+.nav-contact-style {
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 10px 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-contact-style:hover {
+    background: #b22222;
+    border-color: #b22222;
+}
+
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Đẩy nội dung cột phải sang sát lề phải */
+    text-align: right;
+}
+
+.label {
+    font-size: 24px;
+    color: #b22222;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.footer-social-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-social-list li {
+    margin-bottom: 8px;
+}
+
+.footer-social-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.footer-social-list a:hover {
+    color: #b22222;
+}
+
+/* Phần Bottom căn giữa tuyệt đối */
+.footer-bottom {
+    border-top: 1px solid #333; /* Đường kẻ mờ chia đôi */
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around; /* Căn đều 2 bên */
+    font-size: 16px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.m-logo {
+    color: #b22222; /* Màu đỏ thương hiệu của bà */
+}
+
+/* Responsive cho điện thoại (xoay về 1 cột) */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-right {
+        align-items: center;
+        text-align: center;
+    }
+}
+

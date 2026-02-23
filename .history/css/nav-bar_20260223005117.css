@@ -1,0 +1,58 @@
+/* CSS CƠ BẢN */
+body { 
+    margin: 0; 
+    font-family: "Akshar", sans-serif;
+    background-color: #f9f9f9; 
+    color: #000; 
+     padding-top: 80px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 16px; 
+}     
+/* HEADER - THANH MENU */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+header {
+    position: fixed;    /* Ghim cố định một chỗ */
+    top: 0;             /* Sát mép trên cùng */
+    left: 0;            /* Sát mép trái */
+    width: 100%;        /* Trải dài hết màn hình */
+    z-index: 999;       /* Đảm bảo nó luôn nằm TRÊN CÙNG, không bị các ảnh khác đè lên */
+    
+    /* Thêm một chút hiệu ứng cho sang nè */
+    background-color: rgba(255, 255, 255, 0.9); /* Màu trắng hơi trong suốt để thấy mờ mờ nội dung phía dưới khi lướt */
+    backdrop-filter: blur(10px);               /* Làm mờ hậu cảnh phía sau header (cực sang luôn) */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);   /* Đổ bóng nhẹ để tách biệt với thân trang web */
+    
+    padding: 1px 5%;   /* Chỉnh lại khoảng cách cho cân đối */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+}
+.nav-container {
+    /* Bà thử thay đổi con số này xem */
+    max-width: 1400px; /* Tăng lên nếu muốn tụi nó dạt ra 2 bên nhiều hơn */
+    /* Hoặc */
+    /* max-width: 90%; */ /* Tụi nó sẽ luôn chiếm 90% chiều ngang màn hình */
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+.nav-container {
+    max-width: none; /* Bỏ giới hạn cũ */
+    width: 100%;
+    padding: 15px 16%; /* Con số 10% này phải bằng với lề của nội dung bên dưới */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
