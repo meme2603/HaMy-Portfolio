@@ -297,7 +297,7 @@ body {
 .gallery-triple-layout {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+    gap: 10px;
     align-items: center; /* Căn giữa theo chiều dọc để 2 card nằm lọt lòng chiều cao poster */
 }
 
@@ -321,10 +321,18 @@ body {
 
 /* Cột giữa: 2 Card xếp chồng nghệ thuật */
 .stack-center {
-    display: flex;
-    flex-direction: column;
+   display: flex !important; /* Ép nhận flex */
+    flex-direction: column !important;
     align-items: center;
-    gap: 80px;
+    justify-content: center;
+    gap: 100px !important; /* Tăng cường lực cho gap */
+    height: 100%; /* Đảm bảo nó chiếm hết chiều cao cột */
+}
+/* Đảm bảo các món bên trong không tự ý tràn lề */
+.stack-center .media-box {
+    width: 100%;
+    display: block;
+    margin: 0; /* Xóa margin nếu có để gap làm việc chính xác */
 }
 
 .card-item-top, .card-item-bottom {
@@ -663,56 +671,196 @@ body {
     overflow: hidden;
     margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
 }
+#project-okayama-kankou .parallax-bg {
+    background-position: center center !important;
+}
 
 /* Container chính giữ nguyên 3 cột của bà */
 .gallery-triple-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1.5fr; /* Cho 2 bên Thumbnail to hơn chút */
-    gap: 30px;
+    /* gap: 30px; */
     align-items: center; /* Căn giữa theo chiều dọc */
 }
 
-/* Style cho Thumbnail (2 bên) */
-.thumb-main-box {
-    border-radius: 15px;
-    overflow: hidden;
+/* Tổng thể layout xếp dọc */
+.graphic-sandwich-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px; /* Khoảng cách giữa các lớp bánh */
+    max-width: 1200px; /* Khống chế độ rộng cho đẹp */
+    margin: 0 auto;
+}
+
+/* Hai miếng bánh Thumbnail 1 & 2 */
+.sandwich-top, .sandwich-bottom {
+    width: 100%;
+}
+
+.sandwich-top img, .sandwich-bottom img {
+    width: 100%;
+    /* border-radius: 20px; */
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Style cho cụm ở giữa (Character & Label) */
-.stack-center {
+/* Phần nhân ở giữa: Dàn hàng ngang cho to rõ */
+.sandwich-middle {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: -200px;
+    /* padding: 20px 0; */
+}
+/* Nếu muốn nhân vật 'đè' nhẹ lên thumbnail cho nghệ, bà thêm cái này: */
+.sandwich-middle {
+    margin-top: -140px;    /* Đẩy nhân lên chạm miếng bánh trên */
+    margin-bottom: -200px; /* Đẩy nhân xuống chạm miếng bánh dưới */
+    z-index: 10;          /* Đảm bảo nhân nằm trên bánh */
+}
+/* Tuyệt chiêu margin âm cho nhân vật đè nhẹ lên Label */
+.sandwich-middle .char-item-top {
+    margin-right: -80px; /* Đẩy bé bên trái lấn vào Label 50px */
+    z-index: 3;          /* Cho bé nằm trên Label */
 }
 
-/* Bé Character cho nhỏ xinh và có bóng đổ mềm */
-.char-item-top, .char-item-bottom {
-    width: 80%; /* Không quá to */
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+.sandwich-middle .char-item-bottom {
+    margin-left: -80px;  /* Đẩy bé bên phải lấn vào Label 50px */
+    z-index: 3;          /* Cho bé nằm trên Label */
+}
+
+
+/* 2 bé Character (Momo & Momotarou) */
+.sandwich-middle .char-item-top, 
+.sandwich-middle .char-item-bottom {
+    flex: 0 0 500px; /* Tăng kích thước tối thiểu lên 200px cho oai */
     transition: transform 0.3s ease;
 }
 
-.char-item-top:hover, .char-item-bottom:hover {
-    transform: translateY(-5px) rotate(5deg); /* Rê chuột vào bé sẽ nhúc nhích */
+/* Label rượu Sake ở chính giữa */
+.sandwich-middle .label-item-mid {
+    flex: 0 0 750px; /* Cho cái Label to hẳn ra để làm tâm điểm */
+    z-index: 2;
 }
-
-/* Cái Label ở giữa */
-.label-item-mid {
-    width: 100%;
-    padding: 10px;
-    background: #fff; /* Tạo nền cho label nếu cần */
-    border: 1px dashed #ccc;
-    border-radius: 8px;
-}
-
-/* Responsive cho Mobile */
+/* Responsive cho điện thoại */
 @media (max-width: 768px) {
-    .gallery-triple-layout {
-        grid-template-columns: 1fr; /* Mobile thì xếp dọc hết */
+    .graphic-sandwich-layout {
+        gap: 30px;
     }
-    .char-item-top, .char-item-bottom {
-        width: 50%; /* Trên mobile cho character nhỏ lại tránh choán chỗ */
+    .sandwich-middle {
+        flex-direction: row; /* Vẫn giữ hàng ngang trên mobile cho nhân bánh */
+        gap: 15px;
     }
+    .sandwich-middle .char-item-top, 
+    .sandwich-middle .char-item-bottom {
+        max-width: 80px; /* Trên mobile cho character bé lại */
+    }
+}
+
+
+
+
+/* =======MORI MORI LP ====== */
+#project-moriLP .parallax-bg {
+    background-position: center center !important;
+}
+#project-moriLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+
+
+
+/* =======Sneaker LP ====== */
+#project-sneakerLP .parallax-bg {
+    /* 1. Ép ảnh phải phủ kín toàn bộ khung, bất kể màn hình to hay nhỏ */
+    background-size: cover !important; 
+    
+    /* 2. Căn giữa ảnh để nếu có bị cắt thì nó cắt đều 4 phía, không bị mất 'mặt tiền' */
+    background-position: center !important; 
+    
+    /* 3. Nếu bà vẫn muốn nó ưu tiên hiển thị phần trên thì dùng: */
+    /* background-position: center top !important; */
+
+    /* 4. Đảm bảo ảnh không bị lặp lại nếu khung quá to */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Giữ cho hiệu ứng parallax mượt mà */
+    background-attachment: fixed !important; 
+}
+#project-sneakerLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+/* Chỉ áp dụng cho visual-content bên trong Project Sneaker */
+#project-sneakerLP .visual-content-duo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Cột Top Page to hơn, cột chi tiết nhỏ hơn tí nhìn cho nghệ */
+    gap: 40px; /* Khoảng cách giữa 2 cột rộng rãi cho sang */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 ;
+}
+
+/* Khoảng cách giữa các ảnh chồng lên nhau ở cột 2 */
+#project-sneakerLP .visual-content-duo .column {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Khoảng cách giữa News, Recommend, Review */
+}
+
+/* Style cho mấy cái ảnh trong Sneaker cho nó "cháy" */
+#project-sneakerLP .visual-content-duo .img-wrap img {
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Đổ bóng đậm vì Sneaker thường theo style cool ngầu */
+    transition: all 0.4s ease;
+}
+
+/* Hiệu ứng rê chuột nhẹ nhàng */
+#project-sneakerLP .visual-content-duo .img-wrap img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Mobile thì vẫn cho về 1 cột để khách dễ quẹt */
+@media (max-width: 768px) {
+    #project-sneakerLP .visual-content-duo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+
+/* =====NEMURA LP ====== */
+#project-nemuraLP .parallax-bg {
+        /* 1. Ép ảnh phải phủ kín toàn bộ khung, bất kể màn hình to hay nhỏ */
+    background-size: cover !important; 
+    
+    /* 2. Căn giữa ảnh để nếu có bị cắt thì nó cắt đều 4 phía, không bị mất 'mặt tiền' */
+    background-position: center !important; 
+    
+    /* 3. Nếu bà vẫn muốn nó ưu tiên hiển thị phần trên thì dùng: */
+    /* background-position: center top !important; */
+
+    /* 4. Đảm bảo ảnh không bị lặp lại nếu khung quá to */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Giữ cho hiệu ứng parallax mượt mà */
+    background-attachment: fixed !important; 
+}
+#project-nemuraLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
 }
