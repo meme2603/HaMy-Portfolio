@@ -1045,6 +1045,11 @@ section {
     overflow: hidden;
     cursor: pointer;
 }
+.vs-box-banner :first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 /* Box riêng cho Poster: Tỉ lệ đứng */
 .vs-box-poster {
     width: 100%;

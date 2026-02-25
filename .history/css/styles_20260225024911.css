@@ -1045,6 +1045,14 @@ section {
     overflow: hidden;
     cursor: pointer;
 }
+.vs-box-banner :first-child {
+    width: 100%;
+    aspect-ratio: 4 / 3.5; /* Dáng nằm ngang */
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
 /* Box riêng cho Poster: Tỉ lệ đứng */
 .vs-box-poster {
     width: 100%;

@@ -1044,7 +1044,9 @@ section {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+
 }
+
 /* Box riêng cho Poster: Tỉ lệ đứng */
 .vs-box-poster {
     width: 100%;

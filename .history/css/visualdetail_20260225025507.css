@@ -1,0 +1,39 @@
+.project-page {
+    padding-top: 100px; /* Chừa chỗ cho Header của bà */
+}
+
+.container-narrow {
+    max-width: 800px; /* Đoạn text nên để hẹp cho dễ đọc */
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.flex-meta {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 60px;
+}
+
+.meta-item h3 {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.project-gallery .full-width {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}

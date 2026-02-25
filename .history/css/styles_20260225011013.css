@@ -439,6 +439,7 @@ form textarea {
     letter-spacing: 0.3;
     word-break: keep-all; 
     overflow-wrap: anywhere;
+    padding-left: 100px;
 }
 /* Màu đỏ thương hiệu của bà để nhấn mạnh */
 .highlight {
@@ -451,7 +452,7 @@ form textarea {
 html { scroll-behavior: smooth; }
 
 .new-index-section {
-    padding: 80px 0 40px 0;
+    padding: 80px 0;
     background-color: #fafafa; /* Nền xám cực nhẹ cho sang */
 }
 
@@ -998,7 +999,7 @@ section {
     opacity: 0.7;
 }
 
-/* =====VISUAL DESIGN========== */
+/* VISUAL DESIGN */
 /* Container chung cho Visual */
 .vs-wrapper {
     margin-top: 40px;
@@ -1039,12 +1040,14 @@ section {
 /* Box riêng cho Banner: Tỉ lệ ngang */
 .vs-box-banner {
     width: 100%;
-    aspect-ratio: 5 / 3.5; /* Dáng nằm ngang */
+    aspect-ratio: 4 / 3; /* Dáng nằm ngang */
     background: #f0f0f0;
     position: relative;
     overflow: hidden;
     cursor: pointer;
+
 }
+
 /* Box riêng cho Poster: Tỉ lệ đứng */
 .vs-box-poster {
     width: 100%;
