@@ -318,7 +318,7 @@ form textarea {
     gap: 150px; 
     
     /* CHIÊU QUYẾT ĐỊNH: Bà tăng số 15% này lên nếu muốn nó nhích nữa */
-    padding-left: 6%; 
+    padding-left: 5%; 
     
     margin-bottom: 60px;
 }
