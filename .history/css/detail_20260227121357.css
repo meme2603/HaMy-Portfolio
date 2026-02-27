@@ -1,0 +1,916 @@
+/* Đảm bảo trang chi tiết có khoảng trống cho header cố định */
+body {
+    padding-top: 80px; /* Bằng với chiều cao của Header bà đã làm */
+}
+
+
+/* 1. Parallax Hero: Khi cuộn trang, ảnh nền trượt chậm */
+.detail-hero {
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 120%; /* Cao hơn 100% để có không gian trượt */
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    /* filter: brightness(0.6); */
+    /* Magic đây: bám sát chuyển động cuộn */
+    background-attachment: fixed; 
+}
+
+
+/* 1. CĂN CHỈNH GRID ĐỂ THẲNG HÀNG TUYỆT ĐỐI */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Tăng nhẹ độ rộng cột trái cho thoáng chữ */
+    gap: 100px;
+    padding: 120px 180px;
+    align-items: start; /* Đảm bảo cả 2 cột hít lên đỉnh cùng lúc */
+}
+/* 2. CỘT TRÁI (INFO) - CHỈNH ĐẬM NHẠT */
+.project-main-title {
+    font-size: 36px;
+    font-weight: 800; /* Rất đậm để tạo điểm nhấn chính */
+    color: #121212;
+    line-height: 1.1;
+    margin-top: 10px !important; /* Khoảng cách nhỏ từ Category Tag xuống */
+    margin-bottom: 40px !important; /* Khoảng cách từ tên dự án xuống các mục info bên dưới */
+}
+
+/* Style cho cột bên trái (Sidebar) */
+.project-info {
+    position: sticky; /* Magic: Cuộn trang thì cột này bám theo (nếu nội dung dài) */
+    top: 120px;
+    height: fit-content;
+}
+.project-info .info-block p, 
+.project-info .project-main-title,
+.project-info .category-tag {
+    margin: 0; /* Xóa sạch khoảng cách mặc định */
+    padding: 0;
+}
+
+/* Triệt tiêu margin trên cùng của cả 2 tiêu đề */
+/* .project-main-title, 
+.about-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+} */
+.about-title{
+    margin-top: -5px;
+}
+.color-dot {
+    width: 40px;      /* Phải có chiều rộng */
+    height: 40px;     /* Phải có chiều cao */
+    border-radius: 50%; /* Để nó tròn xòe */
+    display: inline-block; /* Quan trọng: Để nó nằm trên một hàng */
+    margin-right: 30px; /* Khoảng cách giữa chấm màu và text */
+}
+/* 1. Khoảng cách giữa các PHẦN (Phân biệt rõ cái nào của cái nào) */
+.desc-item {
+    margin-bottom: 60px; /* Tăng cái này lên để các phần Target, Color, Logo xa nhau ra */
+}
+
+/* 2. Giúp TITLE và TEXT dính gần nhau lại */
+.desc-item h3, 
+.desc-item h4.sub-title {
+    margin-bottom: 8px; /* Giảm khoảng cách phía dưới tiêu đề xuống cực nhỏ */
+}
+
+.desc-item p {
+    margin-top: 0;      /* Xóa lề trên của đoạn văn để nó sát vào tiêu đề */
+    line-height: 1.6;   /* Cho giãn dòng một tí đọc cho sướng mắt */
+}
+
+/* Riêng phần tiêu đề chính (Cái câu bôi đậm to nhất) */
+.desc-main .desc-item h3 {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* Khoảng cách cho phần màu sắc (Color Palette) */
+.color-flex {
+    margin-top: 5px;   /* Giúp mấy chấm màu sát lại với chữ Color Palette */
+    margin-bottom: 10px;
+}
+/* Triệt tiêu margin của cái tag phía trên tiêu đề trái */
+.category-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b22222; /* Màu đỏ thương hiệu của bà làm điểm nhấn nhạt hơn */
+    letter-spacing: 2px;
+}
+
+.info-block {
+    margin-bottom: 25px; /* Khoảng cách giữa các cụm info (Year, Role...) */
+}
+
+.info-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999; /* Màu xám nhạt hẳn để làm nền cho Info Value */
+    letter-spacing: 1.5px;
+    margin-bottom: 6px !important; /* Sát lại với nội dung bên dưới */
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700; /* Chữ thông tin (2024, Design...) nên đậm hơn để dễ đọc */
+    color: #121212; /* Đen đậm */
+}
+
+/* 3. CỘT PHẢI (DESCRIPTION) - CHỈNH KHOẢNG CÁCH HÀNG */
+.about-title {
+    font-size: 44px; /* To hơn Title trái một chút vì nó là tiêu đề đoạn văn */
+    font-weight: 700;
+    margin-bottom: 35px;
+    line-height: 1.2;
+    /* Không cần margin-top vì Grid align-items: start đã lo rồi */
+}
+
+.description-text p {
+    font-size: 18px;
+    line-height: 1.8; /* Khoảng cách dòng thoáng để người ta đọc không bị mỏi mắt */
+    color: #444; /* Màu xám đậm vừa phải, không quá đen gây gắt mắt */
+    margin-bottom: 30px; /* Khoảng cách giữa các đoạn văn */
+}
+
+.info-value a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #ccc; /* Gạch chân nhẹ nhàng */
+}
+
+
+/* ALL PAGE */
+.design-showcase {
+    padding: 150px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Tiêu đề DESIGN to bản */
+.visual-header-large {
+    max-width: 1200px;
+    margin: 0 auto -120px auto;
+    padding: 0 20px;
+}
+
+.visual-header-large h2 {
+    font-size: 14px; /* Cực to như trang mẫu */
+    margin: 0 0 15px 0;
+    letter-spacing: 3px;
+    color: #b22222; /* Màu chữ mờ mờ ở dưới */
+    position: relative;
+    text-align: center;
+}
+
+.sub-visual-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 0 !important; /* QUAN TRỌNG: Diệt sạch margin dưới của chữ này */
+    /* line-height: 1.1;  */
+    /* Thu hẹp độ cao dòng để nó không chiếm chỗ dư */
+}
+
+/* 3. Xử lý cái khung chứa ảnh Mockup */
+.visual-content {
+    margin-top: 0 !important; /* Ép nó hít lên trên */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 0; 
+}
+
+.visual-content .img-wrap.full {
+    margin-top: 0 !important; /* Đảm bảo cái wrap ảnh không đẩy lên */
+}
+
+/* Layout Ảnh */
+.visual-content-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Khoảng cách giữa các cột */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách giữa các ảnh trong cùng một cột */
+}
+
+.img-wrap {
+    width: 100%;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Có thể thêm border nhẹ nếu ảnh của bà trùng màu nền web */
+    /* border: 1px solid #f0f0f0; */
+}
+
+/* Responsive: Mobile thì xếp 1 hàng cho đỡ nhỏ ảnh */
+@media (max-width: 768px) {
+    .visual-content-triple {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .column {
+        gap: 20px;
+    }
+}
+
+/* 1. Nền tối sâu thẳm */
+.design-showcase-dark {
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -120px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+/* 2. Lớp mặt nạ Gradient sang chảnh (Che phần trên và dưới) */
+.design-showcase-dark::before,
+.design-showcase-dark::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 200px; /* Độ rộng của vùng mờ */
+    z-index: 10;
+    pointer-events: none; /* Để người dùng vẫn cuộn chuột bình thường được */
+}
+
+.design-showcase-dark::before {
+    top: 0;
+    background: linear-gradient(to bottom, #121212 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+.design-showcase-dark::after {
+    bottom: 0;
+    background: linear-gradient(to top, #121212 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+/* 3. Hiệu ứng cho các tấm ảnh có "Chiều sâu" */
+.design-showcase-dark .img-wrap {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Đổ bóng mạnh trên nền tối */
+    border-radius: 4px; /* Bo góc cực nhẹ cho tinh tế */
+}
+
+/* Hiệu ứng Hover - Ảnh nổi lên như 3D */
+.design-showcase-dark .img-wrap:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 50px 80px rgba(0,0,0,0.8);
+    z-index: 11;
+}
+
+/* Chỉnh lại độ dãn của 3 cột cho thoáng */
+.design-showcase-dark .visual-content-triple {
+    max-width: 1300px;
+    gap: 40px; /* Tăng khoảng cách để thấy được chiều sâu từng tấm */
+}
+
+
+
+/* GRAPHIC */
+
+/* Container chính */
+.graphic-gallery-section {
+    padding: 40px 0 60px 0;
+    background-color: #fcfcfc; /* Màu nền hơi kem nhẹ cho sang */
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Tiêu đề mới */
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.gallery-tag {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b22222; /* Màu đỏ nhấn */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.gallery-main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+/* Layout 3 cột */
+.gallery-triple-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center; /* Căn giữa theo chiều dọc để 2 card nằm lọt lòng chiều cao poster */
+}
+
+.gallery-item-col {
+    width: 100%;
+}
+
+/* Box chứa ảnh */
+.media-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+/* Đổ bóng kiểu Studio cho Poster */
+.poster-shadow {
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1), 
+                -5px -5px 20px rgba(255,255,255,0.5);
+}
+
+/* Cột giữa: 2 Card xếp chồng nghệ thuật */
+.stack-center {
+   display: flex !important; /* Ép nhận flex */
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    gap: 100px !important; /* Tăng cường lực cho gap */
+    height: 100%; /* Đảm bảo nó chiếm hết chiều cao cột */
+}
+/* Đảm bảo các món bên trong không tự ý tràn lề */
+.stack-center .media-box {
+    width: 100%;
+    display: block;
+    margin: 0; /* Xóa margin nếu có để gap làm việc chính xác */
+}
+
+.card-item-top, .card-item-bottom {
+    width: 100%;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Hover hiệu ứng */
+.media-box:hover img {
+    transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .gallery-triple-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .gallery-main-title { font-size: 32px; }
+}
+
+/* 言語化 */
+.design-rationale {
+    padding: 100px 0;
+    background-color: #f9f9f9; /* Nền trung tính cho dễ đọc chữ */
+    border-top: 1px solid #eee;
+}
+
+.rationale-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Text chiếm ưu thế */
+    gap: 80px;
+    align-items: center;
+}
+.rationale-description span{
+    font-weight: 700;
+    color: #b22222;
+}
+
+/* Cột chữ diễn giải */
+.rationale-label {
+    font-size: 13px;
+    color: #b22222;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.rationale-title {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #1a1a1a;
+}
+
+.rationale-description p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Cột các điểm chính (Key Points) */
+.rationale-points {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.point-item {
+    border-left: 2px solid #ddd;
+    padding-left: 25px;
+    transition: all 0.3s;
+}
+
+.point-item:hover {
+    border-left-color: #1a1a1a;
+}
+
+.point-num {
+    font-size: 14px;
+    color: #999;
+    font-family: serif;
+    font-style: italic;
+}
+
+.point-item h4 {
+    font-size: 20px;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.point-item p {
+    font-size: 15px;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rationale-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+/* 4. Reveal Image: Hiệu ứng ảnh hiện lên khi cuộn tới */
+.reveal-img {
+    width: 100%;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* FOOTER */
+.projects-footer {
+    padding: 150px 0 100px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.project-navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    position: relative;
+}
+
+/* Số thứ tự nhỏ xinh */
+.project-num {
+    font-size: 14px;
+    font-family: serif;
+    margin-right: 40px;
+    color: #bbb;
+}
+
+/* Tên Project */
+.project-name {
+    font-size: 32px; /* Bà muốn bé lại thì chỉnh ở đây nhé */
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1; /* Đẩy cái category sang bên phải */
+    transition: transform 0.4s ease;
+}
+
+/* Category bên phải */
+.project-cat {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hiệu ứng Hover - Đắt giá nhất ở đây */
+.project-row:hover {
+    padding-left: 20px; /* Thụt vào một tí khi hover */
+    background-color: #fafafa;
+}
+
+.project-row:hover .project-name {
+    transform: translateX(10px);
+    color: #b22222; /* Đổi sang màu đỏ nhấn của bà cho đồng bộ */
+}
+
+/* Đánh dấu project đang xem */
+.project-row.active {
+    pointer-events: none; /* Không cho click vào chính nó */
+    opacity: 0.3; /* Làm mờ đi hoặc ẩn đi tùy bà */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-name { font-size: 20px; }
+    .project-cat { display: none; } /* Mobile thì ẩn bớt cho đỡ chật */
+}
+
+.badge-re {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border: 1px solid #444; /* Viền mảnh trên nền tối */
+    border-radius: 16px;
+    margin-left: 15px;
+    vertical-align: middle;
+    color: #888;
+    text-transform: uppercase;
+}
+
+/* Khi hover vào dòng đó thì cái badge cũng sáng lên */
+.project-row:hover .badge-re {
+    border-color: #b22222;
+    color: #b22222;
+}
+
+
+
+/* ========RE-DESIGN========== */
+/* Ép cái ảnh parallax của trang này luôn hiển thị từ trên đỉnh */
+#project-thecoffeehouse-redesign .parallax-bg {
+    background-position: center top !important;
+}
+#project-thecoffeehouse-redesign .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+
+ /* 言語化 */
+/* --- PHẦN 1: ANALYSIS (ĐƠN GIẢN) --- */
+.case-study-container {
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #eee; /* Chỉ là một đường kẻ mỏng */
+}
+
+.old-version-card {
+    padding-top: 10px;
+}
+
+.old-version-card p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.issue-list {
+    list-style: none;
+    padding: 0;
+}
+
+.issue-list li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.issue-list li::before {
+    content: "・"; /* Dấu chấm đơn giản thôi */
+    position: absolute;
+    left: 0;
+    color: #b22222;
+}
+
+/* --- PHẦN 3: LESSONS (GỌN GÀNG) --- */
+.lessons-box {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 40px 20px;
+    border-top: 1px solid #eee; /* Đường kẻ ngăn cách mỏng */
+}
+
+.lessons-grid {
+    display: flex; /* Dùng flex cho đơn giản */
+    gap: 110px;
+    margin-top: 20px;
+}
+
+.lesson-card {
+    flex: 1;
+}
+
+.lesson-card h5 {
+    font-size: 20px;
+    color: #b22222;
+    margin-bottom: 10px;
+}
+
+.lesson-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* --- TITLE CHUNG --- */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .lessons-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* =======OKAYAMA KANKOU======= */
+#project-okayama-kankou .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+#project-okayama-kankou .parallax-bg {
+    background-position: center center !important;
+}
+
+/* Container chính giữ nguyên 3 cột của bà */
+.gallery-triple-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr; /* Cho 2 bên Thumbnail to hơn chút */
+    /* gap: 30px; */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Tổng thể layout xếp dọc */
+.graphic-sandwich-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px; /* Khoảng cách giữa các lớp bánh */
+    max-width: 1200px; /* Khống chế độ rộng cho đẹp */
+    margin: 0 auto;
+}
+
+/* Hai miếng bánh Thumbnail 1 & 2 */
+.sandwich-top, .sandwich-bottom {
+    width: 100%;
+}
+
+.sandwich-top img, .sandwich-bottom img {
+    width: 100%;
+    /* border-radius: 20px; */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Phần nhân ở giữa: Dàn hàng ngang cho to rõ */
+.sandwich-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: -200px;
+    /* padding: 20px 0; */
+}
+/* Nếu muốn nhân vật 'đè' nhẹ lên thumbnail cho nghệ, bà thêm cái này: */
+.sandwich-middle {
+    margin-top: -140px;    /* Đẩy nhân lên chạm miếng bánh trên */
+    margin-bottom: -200px; /* Đẩy nhân xuống chạm miếng bánh dưới */
+    z-index: 10;          /* Đảm bảo nhân nằm trên bánh */
+}
+/* Tuyệt chiêu margin âm cho nhân vật đè nhẹ lên Label */
+.sandwich-middle .char-item-top {
+    margin-right: -80px; /* Đẩy bé bên trái lấn vào Label 50px */
+    z-index: 3;          /* Cho bé nằm trên Label */
+}
+
+.sandwich-middle .char-item-bottom {
+    margin-left: -80px;  /* Đẩy bé bên phải lấn vào Label 50px */
+    z-index: 3;          /* Cho bé nằm trên Label */
+}
+
+
+/* 2 bé Character (Momo & Momotarou) */
+.sandwich-middle .char-item-top, 
+.sandwich-middle .char-item-bottom {
+    flex: 0 0 500px; /* Tăng kích thước tối thiểu lên 200px cho oai */
+    transition: transform 0.3s ease;
+}
+
+/* Label rượu Sake ở chính giữa */
+.sandwich-middle .label-item-mid {
+    flex: 0 0 750px; /* Cho cái Label to hẳn ra để làm tâm điểm */
+    z-index: 2;
+}
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .graphic-sandwich-layout {
+        gap: 30px;
+    }
+    .sandwich-middle {
+        flex-direction: row; /* Vẫn giữ hàng ngang trên mobile cho nhân bánh */
+        gap: 15px;
+    }
+    .sandwich-middle .char-item-top, 
+    .sandwich-middle .char-item-bottom {
+        max-width: 80px; /* Trên mobile cho character bé lại */
+    }
+}
+
+
+
+
+/* =======MORI MORI LP ====== */
+#project-moriLP .parallax-bg {
+    /* 1. Ép ảnh phải phủ kín toàn bộ khung, bất kể màn hình to hay nhỏ */
+    background-size: cover !important; 
+    
+    /* 2. Căn giữa ảnh để nếu có bị cắt thì nó cắt đều 4 phía, không bị mất 'mặt tiền' */
+    background-position: center !important; 
+    
+    /* 3. Nếu bà vẫn muốn nó ưu tiên hiển thị phần trên thì dùng: */
+    /* background-position: center top !important; */
+
+    /* 4. Đảm bảo ảnh không bị lặp lại nếu khung quá to */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Giữ cho hiệu ứng parallax mượt mà */
+    background-attachment: fixed !important; 
+}
+#project-moriLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+
+
+
+/* =======Sneaker LP ====== */
+#project-sneakerLP .parallax-bg {
+    /* 1. Ép ảnh phải phủ kín toàn bộ khung, bất kể màn hình to hay nhỏ */
+    background-size: cover !important; 
+    
+    /* 2. Căn giữa ảnh để nếu có bị cắt thì nó cắt đều 4 phía, không bị mất 'mặt tiền' */
+    background-position: center !important; 
+    
+    /* 3. Nếu bà vẫn muốn nó ưu tiên hiển thị phần trên thì dùng: */
+    /* background-position: center top !important; */
+
+    /* 4. Đảm bảo ảnh không bị lặp lại nếu khung quá to */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Giữ cho hiệu ứng parallax mượt mà */
+    background-attachment: fixed !important; 
+}
+#project-sneakerLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+/* Chỉ áp dụng cho visual-content bên trong Project Sneaker */
+#project-sneakerLP .visual-content-duo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Cột Top Page to hơn, cột chi tiết nhỏ hơn tí nhìn cho nghệ */
+    gap: 40px; /* Khoảng cách giữa 2 cột rộng rãi cho sang */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 ;
+}
+
+/* Khoảng cách giữa các ảnh chồng lên nhau ở cột 2 */
+#project-sneakerLP .visual-content-duo .column {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Khoảng cách giữa News, Recommend, Review */
+}
+
+/* Style cho mấy cái ảnh trong Sneaker cho nó "cháy" */
+#project-sneakerLP .visual-content-duo .img-wrap img {
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Đổ bóng đậm vì Sneaker thường theo style cool ngầu */
+    transition: all 0.4s ease;
+}
+
+/* Hiệu ứng rê chuột nhẹ nhàng */
+#project-sneakerLP .visual-content-duo .img-wrap img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Mobile thì vẫn cho về 1 cột để khách dễ quẹt */
+@media (max-width: 768px) {
+    #project-sneakerLP .visual-content-duo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+
+/* =====NEMURA LP ====== */
+#project-nemuraLP .parallax-bg {
+    /* 1. Ép ảnh phải phủ kín toàn bộ khung, bất kể màn hình to hay nhỏ */
+    background-size: cover !important; 
+    
+    /* 2. Căn giữa ảnh để nếu có bị cắt thì nó cắt đều 4 phía, không bị mất 'mặt tiền' */
+    background-position: center !important; 
+    
+    /* 3. Nếu bà vẫn muốn nó ưu tiên hiển thị phần trên thì dùng: */
+    /* background-position: center top !important; */
+
+    /* 4. Đảm bảo ảnh không bị lặp lại nếu khung quá to */
+    background-repeat: no-repeat !important; 
+    
+    /* 5. Giữ cho hiệu ứng parallax mượt mà */
+    background-attachment: fixed !important; 
+}
+#project-nemuraLP .design-showcase-dark{
+    background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
+    padding: 150px 0 100px 0;
+    position: relative; /* Để làm lớp mặt nạ che 2 đầu */
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
