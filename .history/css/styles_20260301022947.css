@@ -1023,8 +1023,8 @@ section {
 /* Grid cho Poster - 3 cái 1 hàng (hoặc 4 tùy bà) */
 .vs-grid-poster {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
     margin-bottom: 50px;
 }
 
@@ -1048,10 +1048,19 @@ section {
 /* Box riêng cho Poster: Tỉ lệ đứng */
 .vs-box-poster {
     width: 100%;
-    aspect-ratio: 3 / 4.5; /* Dáng đứng */
+    /* 1. Khống chế chiều cao theo tầm mắt (Viewport Height) */
+    /* 70vh nghĩa là nó chỉ chiếm tối đa 70% chiều cao màn hình thôi */
+    max-height: 100vh; 
+    
+    /* 2. Giữ tỉ lệ nhưng không được vượt quá max-height ở trên */
+    aspect-ratio: 3 / 4; 
+    
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    
+    /* 3. Căn giữa cái hộp này nếu nó nhỏ hơn chiều ngang */
+    margin: 0 auto; 
 }
 
 /* Ảnh trong box */

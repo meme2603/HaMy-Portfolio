@@ -1,0 +1,234 @@
+/* Đảm bảo trang chi tiết có khoảng trống cho header cố định */
+body {
+    padding-top: 80px; /* Bằng với chiều cao của Header bà đã làm */
+}
+
+/* ============================================================
+   1. LAYOUT CHUNG & RESPONSIVE (DÙNG CHO TẤT CẢ)
+   ============================================================ */
+@media (max-width: 992px) {
+    .case-study-grid { grid-template-columns: 1fr; gap: 50px; padding: 60px 5%; }
+    .gallery-grid-layout, .visual-content-triple, .visual-content-duo, .gallery-triple-layout { 
+        grid-template-columns: 1fr !important; 
+    }
+    .project-info { position: static !important; }
+    .rationale-container { grid-template-columns: 1fr !important; gap: 50px; }
+}
+
+/* 1. CĂN CHỈNH GRID ĐỂ THẲNG HÀNG TUYỆT ĐỐI */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Tăng nhẹ độ rộng cột trái cho thoáng chữ */
+    gap: 250px;
+    padding: 100px 180px;
+    align-items: start; /* Đảm bảo cả 2 cột hít lên đỉnh cùng lúc */
+}
+
+/* Style cho cột bên trái (Sidebar) */
+.project-info {
+    position: sticky; /* Magic: Cuộn trang thì cột này bám theo (nếu nội dung dài) */
+    top: 120px;
+    height: fit-content;
+}
+
+/* ============================================================
+   2. HERO & PARALLAX (ĐÃ GÔM CHUNG)
+   ============================================================ */
+.detail-hero {
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Tui đã gôm chung toàn bộ Parallax của Mori, Sneaker, Nemura... vào đây */
+.parallax-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 120%; /* Cao hơn 100% để có không gian trượt */
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center !important; /* Mặc định căn giữa */
+    z-index: -1;
+}
+
+/* Chỉnh riêng cho Coffee House nếu muốn ưu tiên đỉnh ảnh */
+#project-thecoffeehouse-redesign .parallax-bg {
+    background-position: center top !important;
+}
+
+/* ============================================================
+   3. TYPOGRAPHY & CHỮ NGHĨA
+   ============================================================ */
+.project-main-title {
+    font-size: 36px;
+    font-weight: 800; /* Rất đậm để tạo điểm nhấn chính */
+    color: #121212;
+    line-height: 1.1;
+    margin-top: 10px !important;
+    margin-bottom: 40px !important;
+}
+
+.sub-title { font-size: 24px; }
+
+.category-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b22222;
+    letter-spacing: 2px;
+}
+
+.info-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #999;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px !important;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+}
+
+/* ============================================================
+   4. SHOWCASE DARK (NỀN TỐI - ĐÃ GÔM CHUNG)
+   ============================================================ */
+/* Tui đã gôm mớ bòng bong của Mori, Sneaker, Nemura vào 1 class duy nhất */
+.design-showcase-dark {
+    background-color: #121212;
+    padding: 150px 0 100px 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: -160px; /* Kéo lên để lớp mặt nạ che được phần trên */
+}
+
+/* Lớp mặt nạ Gradient sang chảnh */
+.design-showcase-dark::before,
+.design-showcase-dark::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; height: 200px; z-index: 10;
+    pointer-events: none;
+}
+.design-showcase-dark::before { top: 0; background: linear-gradient(to bottom, #121212 0%, transparent 100%); }
+.design-showcase-dark::after { bottom: 0; background: linear-gradient(to top, #121212 0%, transparent 100%); }
+
+/* Hiệu ứng cho các tấm ảnh có "Chiều sâu" trong nền tối */
+.design-showcase-dark .img-wrap {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+.design-showcase-dark .img-wrap:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 50px 80px rgba(0,0,0,0.8);
+    z-index: 11;
+}
+
+/* ============================================================
+   5. GALLERY & MEDIA BOX (POSTER, CARD...)
+   ============================================================ */
+.gallery-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.media-box {
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.media-box img {
+    width: 100%; height: auto; display: block;
+    transition: all 0.5s ease;
+}
+.media-box:hover { transform: translateY(-10px); }
+.media-box:hover img { transform: scale(1.03); }
+
+/* Đổ bóng kiểu Studio cho Poster */
+.poster-shadow {
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -5px -5px 20px rgba(255,255,255,0.5);
+}
+
+/* Layout 3 cột */
+.visual-content-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* ============================================================
+   6. CÁC LAYOUT ĐẶC BIỆT (GIỮ RIÊNG ĐỂ HỌC)
+   ============================================================ */
+
+/* --- OKAYAMA SANDWICH LAYOUT --- */
+.graphic-sandwich-layout {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1px; max-width: 1200px; margin: 0 auto;
+}
+.sandwich-middle {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; margin-top: -140px; margin-bottom: -200px; z-index: 10;
+}
+.sandwich-middle .char-item-top { margin-right: -80px; z-index: 3; }
+.sandwich-middle .char-item-bottom { margin-left: -80px; z-index: 3; }
+.sandwich-middle .label-item-mid { flex: 0 0 750px; z-index: 2; }
+
+/* --- SNEAKER DUO LAYOUT --- */
+#project-sneakerLP .visual-content-duo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px; max-width: 1200px; margin: 0 auto; padding: 20px 0;
+}
+#project-sneakerLP .visual-content-duo .column {
+    display: flex; flex-direction: column; gap: 100px;
+}
+
+/* ============================================================
+   7. FOOTER NAVIGATION
+   ============================================================ */
+.projects-footer { padding: 150px 0 100px; background-color: #fff; border-top: 1px solid #eee; }
+.project-row {
+    display: flex; align-items: center; padding: 30px 0; border-bottom: 1px solid #eee;
+    text-decoration: none; color: #1a1a1a;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.project-row:hover { padding-left: 20px; background-color: #fafafa; }
+.project-name { font-size: 32px; font-weight: 600; flex-grow: 1; transition: transform 0.4s ease; }
+.project-row:hover .project-name { transform: translateX(10px); color: #b22222; }
+
+/* ============================================================
+   8. UTILITIES (MẤY CÁI LẶT VẶT KHÁC)
+   ============================================================ */
+.color-dot {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: inline-block; margin-right: 30px;
+}
+.typo-preview {
+    background: #fdfdfd; 
+    padding: 15px; 
+    border-radius: 8px;
+    border: 1px dashed #eee; 
+    width: fit-content;
+}
+.reveal-img {
+    width: 100%; 
+    margin-bottom: 50px; 
+    opacity: 0;
+    transform: translateY(30px); 
+    transition: all 0.8s ease-out;
+}
+.reveal-img.visible { opacity: 1; transform: translateY(0); }

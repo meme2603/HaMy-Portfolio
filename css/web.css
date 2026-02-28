@@ -1,5 +1,0 @@
-.project-container-visual {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Chia 4 cột cho Visual */
-    gap: 20px;
-}

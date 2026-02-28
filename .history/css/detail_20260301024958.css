@@ -2,16 +2,6 @@
 body {
     padding-top: 80px; /* Bằng với chiều cao của Header bà đã làm */
 }
-/* ============================================================
- RESPONSIVE (Cho Mobile)
-   ============================================================ */
-@media (max-width: 992px) {
-    .case-study-grid { grid-template-columns: 1fr; gap: 50px; padding: 60px 5%; }
-    .gallery-grid-layout, .visual-content-triple, .visual-content-duo { 
-        grid-template-columns: 1fr; 
-    }
-    .project-info { position: static; }
-}
 
 
 /* 1. Parallax Hero: Khi cuộn trang, ảnh nền trượt chậm */
@@ -71,6 +61,12 @@ body {
     padding: 0;
 }
 
+/* Triệt tiêu margin trên cùng của cả 2 tiêu đề */
+/* .project-main-title, 
+.about-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+} */
  .project-description{
     margin-top: -10px;
  }
@@ -245,7 +241,7 @@ body {
 
 .visual-header-large h2 {
     font-size: 14px; /* Cực to như trang mẫu */
-    margin: 0 0 -15px 0;
+    margin: 0 0 -5px 0;
     letter-spacing: 3px;
     color: #b22222; /* Màu chữ mờ mờ ở dưới */
     position: relative;
@@ -305,6 +301,16 @@ body {
     /* border: 1px solid #f0f0f0; */
 }
 
+/* Responsive: Mobile thì xếp 1 hàng cho đỡ nhỏ ảnh */
+@media (max-width: 768px) {
+    .visual-content-triple {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .column {
+        gap: 20px;
+    }
+}
 
 /* 1. Nền tối sâu thẳm */
 .design-showcase-dark {
@@ -364,7 +370,7 @@ body {
 /* Container chính */
 .graphic-gallery-section {
     padding: 40px 0 60px 0;
-    background-color: #f9f9f9; /* Màu nền hơi kem nhẹ cho sang */
+    background-color: #fcfcfc; /* Màu nền hơi kem nhẹ cho sang */
 }
 
 .gallery-container {
@@ -448,13 +454,19 @@ body {
     transform: scale(1.03);
 }
 
-
+/* Responsive */
+@media (max-width: 992px) {
+    .gallery-triple-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .gallery-main-title { font-size: 32px; }
+}
 
 /* 言語化 */
 .design-rationale {
-    margin-top: 40px;
     padding: 100px 0;
-    background-color: #fff; /* Nền trung tính cho dễ đọc chữ */
+    background-color: #f9f9f9; /* Nền trung tính cho dễ đọc chữ */
     border-top: 1px solid #eee;
 }
 
@@ -494,43 +506,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* ====Graphic design==== */
-.gallery-grid-layout {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia 2 cột đều nhau */
-    gap: 40px; /* Khoảng cách giữa các ảnh */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.media-box {
-    width: 100%;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-/* Poster thường dài nên mình khống chế nhẹ */
-.poster-shadow img {
-    width: 100%;
-    height: auto;
-    display: block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Card thường nhỏ và nằm ngang, nên mình có thể cho nó nhỏ lại tí nếu muốn */
-.card-shadow img {
-    width: 100%;
-    height: auto;
-    display: block;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-radius: 4px; /* Card thường bo góc ít hơn poster */
-}
-
-.gallery-item:hover .media-box {
-    transform: translateY(-10px);
-}
-
 /* Cột các điểm chính (Key Points) */
 .rationale-points {
     display: flex;
@@ -567,6 +542,13 @@ body {
     color: #777;
 }
 
+/* Responsive */
+@media (max-width: 992px) {
+    .rationale-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
 
 /* 4. Reveal Image: Hiệu ứng ảnh hiện lên khi cuộn tới */
 .reveal-img {
@@ -661,6 +643,12 @@ body {
 .project-row.active {
     pointer-events: none; /* Không cho click vào chính nó */
     opacity: 0.3; /* Làm mờ đi hoặc ẩn đi tùy bà */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-name { font-size: 20px; }
+    .project-cat { display: none; } /* Mobile thì ẩn bớt cho đỡ chật */
 }
 
 .badge-re {
@@ -778,6 +766,14 @@ body {
     color: #1a1a1a;
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+    .lessons-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
 /* =======OKAYAMA KANKOU======= */
 #project-okayama-kankou .design-showcase-dark{
     background-color: #121212; /* Hoặc màu #1a1a1a nếu muốn hơi xám tí */
@@ -868,6 +864,20 @@ body {
     flex: 0 0 750px; /* Cho cái Label to hẳn ra để làm tâm điểm */
     z-index: 2;
 }
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .graphic-sandwich-layout {
+        gap: 30px;
+    }
+    .sandwich-middle {
+        flex-direction: row; /* Vẫn giữ hàng ngang trên mobile cho nhân bánh */
+        gap: 15px;
+    }
+    .sandwich-middle .char-item-top, 
+    .sandwich-middle .char-item-bottom {
+        max-width: 80px; /* Trên mobile cho character bé lại */
+    }
+}
 
 
 
@@ -954,6 +964,13 @@ body {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
+/* Mobile thì vẫn cho về 1 cột để khách dễ quẹt */
+@media (max-width: 768px) {
+    #project-sneakerLP .visual-content-duo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
 
 
 

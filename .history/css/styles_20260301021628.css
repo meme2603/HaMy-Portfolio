@@ -582,7 +582,9 @@ section {
     margin: 0;
     padding: 60px 0; /* Chỉ để padding trên dưới để giãn chữ, không để margin */
 }
-
+.flat-carousel-section{
+    background-color: #fff;
+}
 .work-title-area {
     margin-bottom: 40px;
     text-align: left; /* Bà muốn để bên trái hay ở giữa? Tạm thời tui để bên trái cho sang nha */
@@ -830,7 +832,7 @@ section {
 
 .flat-carousel-section {
     padding: 60px 0;
-    background: #fff;
+    background: #fcfcfc;
     overflow: hidden;
     width: 100%;
 }
@@ -1023,8 +1025,8 @@ section {
 /* Grid cho Poster - 3 cái 1 hàng (hoặc 4 tùy bà) */
 .vs-grid-poster {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
     margin-bottom: 50px;
 }
 

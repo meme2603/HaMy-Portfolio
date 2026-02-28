@@ -1023,8 +1023,8 @@ section {
 /* Grid cho Poster - 3 cái 1 hàng (hoặc 4 tùy bà) */
 .vs-grid-poster {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
     margin-bottom: 50px;
 }
 
@@ -1039,7 +1039,7 @@ section {
 /* Box riêng cho Banner: Tỉ lệ ngang */
 .vs-box-banner {
     width: 100%;
-    aspect-ratio: 5 / 3.5; /* Dáng nằm ngang */
+    aspect-ratio: 4 / 3.8; /* Dáng nằm ngang */
     background: #f0f0f0;
     position: relative;
     overflow: hidden;
