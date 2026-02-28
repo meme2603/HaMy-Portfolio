@@ -1008,7 +1008,7 @@ section {
 .vs-label {
     font-size: 1.2rem;
     color: #121212; /* Màu đỏ của bà */
-    margin: 40px 0 20px;
+    margin: 80px 0 20px;
     font-weight: bold;
 }
 
@@ -1023,9 +1023,9 @@ section {
 /* Grid cho Poster - 3 cái 1 hàng (hoặc 4 tùy bà) */
 .vs-grid-poster {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 80px 25px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    margin-bottom: 50px;
 }
 
 /* Khung card chung */
