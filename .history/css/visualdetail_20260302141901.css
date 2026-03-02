@@ -331,6 +331,13 @@ html, body {
     max-width: 90%; /* Để chữ không bị tràn quá sát mép ảnh */
 }
 
+/* 5. Khối Mockup-bg (Nếu bà có đổ màu nền cho hàng dưới) */
+#re-design-poster .mockup-bg {
+    background-color: #fdfdfd; /* Màu nền cực nhạt để tôn mockup */
+    padding: 60px 20px;
+    border-radius: 20px;
+}
+
 /* 6. Responsive cho Mobile (Quan trọng nè bà) */
 @media (max-width: 768px) {
     #re-design-poster .showcase-section {
@@ -351,7 +358,7 @@ html, body {
     margin: 80px auto;
     align-items: start;
 }
-#visual-poster .poster-mockup-grid .showcase-section.mockup-bg {
+#visual-poster .candle .showcase-section.mockup-bg {
     flex: 1;               /* Chiếm phần diện tích còn lại */
     display: flex;
     flex-direction: column; /* Ép 2 mockup xếp thành hàng dọc (Trên - Dưới) */
@@ -359,7 +366,7 @@ html, body {
     background: transparent; /* Bỏ màu nền nếu bà muốn */
     padding: 0;            /* Xóa padding dư thừa */
 }
-.poster-mockup-grid .mockup-image-wrapper img {
+.candle .mockup-image-wrapper img {
     width: 100%;
     flex-grow: 1;          /* Để ảnh chiếm hết diện tích cái hộp */
     height: 395px;          /* Số giả để flexbox tính toán lại cho chuẩn */

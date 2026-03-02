@@ -331,6 +331,12 @@ html, body {
     max-width: 90%; /* Để chữ không bị tràn quá sát mép ảnh */
 }
 
+/* 5. Khối Mockup-bg (Nếu bà có đổ màu nền cho hàng dưới) */
+#re-design-poster .mockup-bg {
+    padding: 60px 20px;
+    border-radius: 20px;
+}
+
 /* 6. Responsive cho Mobile (Quan trọng nè bà) */
 @media (max-width: 768px) {
     #re-design-poster .showcase-section {

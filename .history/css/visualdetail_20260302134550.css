@@ -331,6 +331,13 @@ html, body {
     max-width: 90%; /* Để chữ không bị tràn quá sát mép ảnh */
 }
 
+/* 5. Khối Mockup-bg (Nếu bà có đổ màu nền cho hàng dưới) */
+#re-design-poster .mockup-bg {
+    background-color: #fdfdfd; /* Màu nền cực nhạt để tôn mockup */
+    padding: 60px 20px;
+    border-radius: 20px;
+}
+
 /* 6. Responsive cho Mobile (Quan trọng nè bà) */
 @media (max-width: 768px) {
     #re-design-poster .showcase-section {
@@ -343,26 +350,73 @@ html, body {
     }
 }
 /* ====candle===== */
-#visual-poster .poster-mockup-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình 50-50 */
-    gap: 30px;                      /* Khoảng cách giữa Poster và cụm Mockup */
-    max-width: 1400px;              /* Cho rộng ra một xíu nhìn cho sang */
-    margin: 80px auto;
-    align-items: start;
+/* 1. Biến cái thùng .candle thành 2 cột ngang */
+.candle {
+    display: flex;         /* Bật Flexbox để chia cột */
+    gap: 40px;             /* Khoảng cách giữa Poster và cụm Mockup */
+    max-width: 1200px;     /* Giới hạn độ rộng để không bị loãng */
+    margin: 80px auto;     /* Căn giữa trang */
+    padding: 0 20px;
+    align-items: stretch;  /* Mấu chốt: Ép 2 cột cao bằng nhau */
 }
-#visual-poster .poster-mockup-grid .showcase-section.mockup-bg {
+
+/* 2. Cột bên trái: Poster */
+.candle > .showcase-section:first-child {
+    flex: 1.2;             /* Cho Poster to hơn cột bên phải một chút */
+}
+
+.candle .main-image-wrapper {
+    height: 100%;          /* Cao hết cột trái */
+}
+
+.candle .main-image-wrapper img {
+    width: 100%;
+    height: 100%;          /* Ép ảnh cao bằng cột */
+    object-fit: cover;     /* Cắt ảnh mượt mà, không bị méo */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 3. Cột bên phải: Chứa 2 cái Mockup xếp dọc */
+.candle .showcase-section.mockup-bg {
     flex: 1;               /* Chiếm phần diện tích còn lại */
     display: flex;
     flex-direction: column; /* Ép 2 mockup xếp thành hàng dọc (Trên - Dưới) */
-    gap: 10px;             /* Khoảng cách giữa 2 cái mockup */
+    gap: 20px;             /* Khoảng cách giữa 2 cái mockup */
     background: transparent; /* Bỏ màu nền nếu bà muốn */
     padding: 0;            /* Xóa padding dư thừa */
 }
-.poster-mockup-grid .mockup-image-wrapper img {
-    width: 100%;
-    flex-grow: 1;          /* Để ảnh chiếm hết diện tích cái hộp */
-    height: 395px;          /* Số giả để flexbox tính toán lại cho chuẩn */
-    object-fit: cover;     /* Cắt ảnh cho vừa khít */
+
+/* 4. Từng cái hộp Mockup con */
+.candle .mockup-image-wrapper {
+    flex: 1;               /* Chia đều: mỗi đứa chiếm 50% chiều cao cột phải */
+    display: flex;
+    flex-direction: column;
 }
 
+.candle .mockup-image-wrapper img {
+    width: 100%;
+    flex-grow: 1;          /* Để ảnh chiếm hết diện tích cái hộp */
+    height: 10px;          /* Số giả để flexbox tính toán lại cho chuẩn */
+    object-fit: cover;     /* Cắt ảnh cho vừa khít */
+    border-radius: 12px;
+}
+
+/* 5. Caption dưới ảnh Mockup */
+.candle .mockup-caption {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    margin-bottom: 0;
+    text-align: right;     /* Căn phải cho điệu */
+}
+
+/* 6. Mobile: Trở về 1 cột cho dễ nhìn */
+@media (max-width: 992px) {
+    .candle {
+        flex-direction: column;
+    }
+    .candle .main-image-wrapper img {
+        height: auto;
+    }
+}
