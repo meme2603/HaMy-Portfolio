@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyCook-App</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+
+    
+    <link rel="icon" type="image/png" href="/img/memex2.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="first-part"><a href="index.html" class="logo-link">NGUYEN THI</a> </span>
+                <span class="last-part"><a href="index.html" class="logo-link">HA MY</a></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="web.html">Web Design</a></li>
+                    <li><a href="visual.html">Visual Design</a></li>
+                    <li><a href="app.html">App Design </a></li>
+                    <li><a href="#about-section">About</a></li>
+                    <li><a href="#contact-popup" class="material-symbols-outlined">mail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contact-popup" class="overlay">
+        <div class="popup">
+            <h2>お問い合わせ</h2> <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+                ご質問やご依頼など、お気軽にご連絡ください。
+                <br>(For any queries or work requests, please contact me.)
+            </p>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form action="https://formspree.io/f/xnjzqegr" method="POST">
+                <input type="text" name="name" placeholder="お名前 ( Name)" required>
+                <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+                <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+                <button type="submit" class="btn-send">送信する</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="detail-hero">
+        <div class="parallax-bg" style="background-image: url('/img/WEB/morimoriLP.png');"></div>
+    </section>
+
+    <section class="project-detail-layout">
+        <div class="container-detail">
+            <div class="case-study-grid">
+                
+                <aside class="project-info">
+                    <div class="main-info-group">
+                        <span class="category-tag">作品名</span>
+                        <h2 class="project-main-title">EASY COOK APP</h2>
+                    </div>
+
+                    <div class="sub-info-group">
+                        <div class="info-block">
+                            <p class="info-label">制作時期</p>
+                            <p class="info-value">4月2025年ー7月2025年</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">担当</p>
+                            <p class="info-value">UI/UXデザイン</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">ツール</p>
+                            <p class="info-value">Figma,HTML ,CSS</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">作品URL</p>
+                            <p class="info-value"><a href="#" target="_blank">製作中</a></p>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="project-description">
+                    <h2 class="about-title">About the project</h2>
+        
+                    <div class="description-grid">
+                        <div class="desc-main">
+                            <div class="desc-item">
+                                <h4 class="sub-title">アプリの紹介とPRのLPを制作しました。</h4>
+                            </div>
+                            <div class="desc-item">
+                                <h4 class="sub-title">Concept </h4>
+                                <p>思い出を大切したいの若者ユーザーをターゲットに、アプリの魅力を伝えるための<br>LPデザインを目指しました。</p>
+                                <p>そして、余白を活かしたレイアウトを使用し、やさしく親しみやすいと懐かしい世界観を表現しました。</p>
+                            </div>
+                        </div>
+                            <div class="desc-item">
+                                <h4 class="sub-title">Design Point</h4>
+                                <p>ブランドに合わせて、シンプルでデザインを心がけました。<br>ユーザーがアプリの特徴をすぐに理解できるように、情報の整理と視覚的な魅力を両立させました。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+        </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cấm tuyệt đối cuộn ngang */
+    max-width: 100%;
+}
+
+
+/* ====NEMURA APP====== */
+/* Layout chung cho cả trang */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.mid-scroll-image {
+    width: 100%;
+    height: 90vh; /* Độ cao của cái ảnh này, tầm 60% màn hình là đẹp */
+    overflow: hidden;
+    position: relative;
+    margin: 60px 0;
+}
+
+.fixed-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    /* ĐÂY LÀ PHÉP THUẬT: Giữ ảnh đứng yên khi cuộn */
+    background-attachment: fixed; 
+}
+
+
+
+
+/* ===the context */
+.context-section {
+    padding: 120px 20px;
+    text-align: center; /* Căn giữa để tạo sự trang trọng cho phần mở đầu */
+}
+
+.context-content {
+    max-width: 100px; /* Bóp lại một chút cho dễ đọc, không bị tràn lan */
+    margin: 0 auto;
+}
+
+.context-text {
+    margin: 40px auto 60px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: left; /* Chữ vẫn nên để căn lề trái cho dễ đọc */
+}
+
+.context-visual {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.context-visual img {
+    width: 100%;
+    height: auto;
+    /* Nếu muốn ảnh chìm vào nền thì bỏ shadow, còn muốn nổi thì thêm cái này: */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.context-visual .caption {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Tinh chỉnh lại cái big-title cho giống style Sammy AI */
+.context-section .big-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+/* ==== phần giải quyết vấn đề===  */
+.challenge-checkerboard {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách giữa 2 hàng */
+}
+
+.checker-row {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa chữ và ảnh */
+    min-height: 450px;
+}
+
+.checker-row.reverse {
+    flex-direction: row-reverse; /* Đảo ngược hàng 2 */
+}
+
+.checker-content, .checker-image {
+    flex: 1;
+    border-radius: 20px; /* Bo góc nhẹ nhàng */
+    overflow: hidden;
+}
+
+.checker-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Màu sắc */
+.problem-bg { 
+    background-color: #111; 
+    color: #fff; 
+}
+.solution-bg { 
+    background-color: #111; 
+    color: #fff; 
+}
+
+.checker-content h3 { font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+.checker-content p { line-height: 1.7; opacity: 0.9; margin-bottom: 20px; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.check-list li::before { content: "•"; position: absolute; left: 0; color: currentColor; }
+
+.checker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .checker-row, .checker-row.reverse { flex-direction: column; }
+    .checker-image { height: 300px; }
+}

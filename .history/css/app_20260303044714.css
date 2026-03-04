@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cấm tuyệt đối cuộn ngang */
+    max-width: 100%;
+}
+/* Layout chung cho cả trang */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.section-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.big-title {
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+/* Sticky Layout (Chữ đứng yên, ảnh trôi) */
+.overview-grid, .sticky-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+.sticky-content {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+}
+
+/* Hero Section */
+.app-hero {
+    width: 100%;
+    background: #f4f4f4; /* Hoặc màu brand của bà */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-image img {
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+/* Problem & Solution Boxes */
+.solution-flex {
+    display: flex;
+    gap: 30px;
+}
+
+.solution-box {
+    flex: 1;
+    padding: 50px;
+    border-radius: 24px;
+}
+
+.problem { background: #fef1f1; }
+.solution { background: #f1fef5; }
+
+/* Grid ảnh All Screens */
+.screens-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+}
+
+.screens-grid img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+    .overview-grid, .sticky-layout, .solution-flex {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .sticky-content { position: static; }
+    .screens-grid { grid-template-columns: repeat(2, 1fr); }
+}

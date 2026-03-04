@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cấm tuyệt đối cuộn ngang */
+    max-width: 100%;
+}
+
+
+/* ====NEMURA APP====== */
+/* Layout chung cho cả trang */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.mid-scroll-image {
+    width: 100%;
+    height: 90vh; /* Độ cao của cái ảnh này, tầm 60% màn hình là đẹp */
+    overflow: hidden;
+    position: relative;
+    margin: 60px 0;
+}
+
+.fixed-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    /* ĐÂY LÀ PHÉP THUẬT: Giữ ảnh đứng yên khi cuộn */
+    background-attachment: fixed; 
+}
+
+
+
+
+/* ===the context */
+/* Container tổng */
+.context-section-full {
+    width: 100%;
+    padding: 100px 0 0 0; /* Không padding dưới để ảnh dính sát phần sau nếu muốn */
+}
+
+/* Khung chữ: Giới hạn 1200px */
+.context-content-text {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.step-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.context-text {
+    margin-top: 30px;
+    max-width: 800px; /* Bóp chữ lại xíu cho sang, đừng để dài quá khó đọc */
+}
+
+.context-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Khung ảnh: TRÀN MÀN HÌNH */
+.context-visual-wide {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.context-visual-wide img {
+    width: 100%;
+    height: auto;
+    display: block; /* Xóa khoảng trắng dưới ảnh */
+}
+
+.caption-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.caption {
+    font-size: 0.85rem;
+    color: #999;
+    text-align: right;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .context-section-full { padding-top: 60px; }
+    .big-title { font-size: 32px; }
+}
+
+/* ==== phần giải quyết vấn đề===  */
+.challenge-checkerboard {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách giữa 2 hàng */
+}
+
+.checker-row {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa chữ và ảnh */
+    min-height: 450px;
+}
+
+.checker-row.reverse {
+    flex-direction: row-reverse; /* Đảo ngược hàng 2 */
+}
+
+.checker-content, .checker-image {
+    flex: 1;
+    border-radius: 20px; /* Bo góc nhẹ nhàng */
+    overflow: hidden;
+}
+
+.checker-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Màu sắc */
+.problem-bg { 
+    background-color: #111; 
+    color: #fff; 
+}
+.solution-bg { 
+    background-color: #111; 
+    color: #fff; 
+}
+
+.checker-content h3 { font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+.checker-content p { line-height: 1.7; opacity: 0.9; margin-bottom: 20px; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.check-list li::before { content: "•"; position: absolute; left: 0; color: currentColor; }
+
+.checker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .checker-row, .checker-row.reverse { flex-direction: column; }
+    .checker-image { height: 300px; }
+}

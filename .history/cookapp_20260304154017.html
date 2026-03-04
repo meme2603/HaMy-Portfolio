@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyCook-App</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+
+    
+    <link rel="icon" type="image/png" href="/img/memex2.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="first-part"><a href="index.html" class="logo-link">NGUYEN THI</a> </span>
+                <span class="last-part"><a href="index.html" class="logo-link">HA MY</a></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="web.html">Web Design</a></li>
+                    <li><a href="visual.html">Visual Design</a></li>
+                    <li><a href="app.html">App Design </a></li>
+                    <li><a href="#about-section">About</a></li>
+                    <li><a href="#contact-popup" class="material-symbols-outlined">mail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contact-popup" class="overlay">
+        <div class="popup">
+            <h2>お問い合わせ</h2> <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+                ご質問やご依頼など、お気軽にご連絡ください。
+                <br>(For any queries or work requests, please contact me.)
+            </p>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form action="https://formspree.io/f/xnjzqegr" method="POST">
+                <input type="text" name="name" placeholder="お名前 ( Name)" required>
+                <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+                <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+                <button type="submit" class="btn-send">送信する</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="detail-hero">
+        <div class="parallax-bg" style="background-image: url('/img/APP/cook-hero.png');"></div>
+    </section>
+
+    <section class="project-detail-layout">
+        <div class="container-detail">
+            <div class="case-study-grid">
+                
+                <aside class="project-info">
+                    <div class="main-info-group">
+                        <span class="category-tag">作品名</span>
+                        <h2 class="project-main-title">EASY COOK APP</h2>
+                    </div>
+
+                    <div class="sub-info-group">
+                        <div class="info-block">
+                            <p class="info-label">制作時期</p>
+                            <p class="info-value">4月2025年ー7月2025年</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">担当</p>
+                            <p class="info-value">UI/UXデザイン</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">ツール</p>
+                            <p class="info-value">Figma</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">作品URL</p>
+                            <p class="info-value"><a href="#" target="_blank">製作中</a></p>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="project-description">
+                    <h2 class="about-title">About The Project</h2>
+        
+                    <div class="description-grid">
+                        <div class="desc-main">
+                            <div class="desc-item">
+                                <h4 class="sub-title">家にある食材を活用し、親子で楽しくお弁当作りができるアプリ</h4>
+                                <p>忙しい日常の中でも、冷蔵庫の食材を無駄なく使いながら、親子のコミュニケーションを深められる体験を提供することを目的としました。</p>
+                            </div>
+                    </div>
+            </main>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="mid-scroll-image">
+        <div class="fixed-bg" style="background-image: url('img/APP/nemura-muockup1.jpg');">
+            <div class="overlay-text" data-aos="fade-up">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 背景・課題＆解決策案 -->
+    <section class="challenge-checkerboard">
+        <h2 class="big-title">01. 背景・課題＆解決策案</h2>
+    <div class="checker-row" data-aos="fade-up">
+        <div class="checker-content problem-bg">
+            <!-- <span class="label">01. The Problem</span> -->
+            <h3>ユーザーの課題</h3>
+            <p>毎日のお弁当作りでは、献立に悩み、食材をうまく使い切れないという課題があります。</p> 
+            <ul class="check-list">
+                <li>毎日の「お弁当何を作ろう？」という悩み</li>
+                <li>冷蔵庫の食材を上手に使いたいけど献立が決まらない</li>
+                <li>親子で一緒に過ごす時間が少ない</li>
+                <li>お弁当を作ることはお母さんの仕事と思われる</li>
+            </ul>
+        </div>
+        <div class="checker-image">
+            <img src="img/APP/cook-prolem.jpg" alt="Problem Visual">
+        </div>
+    </div>
+
+    <div class="checker-row reverse" data-aos="fade-up">
+        <div class="checker-content solution-bg">
+            <!-- <span class="label">02. The Solution</span> -->
+            <h3>解決策の提案</h3>
+            <p>親子で一緒に料理(お弁当作り)をする体験で、一緒に過ごせる</p>
+            <ul class="check-list">
+                <li>冷蔵庫の食材を登録して“使い切り”提案</li>
+                <li>5〜15分で作れる時短レシピ</li>
+                <li>子どもと一緒に楽しめる</li>
+            </ul>
+        </div>
+        <div class="checker-image">
+            <img src="img/APP/cook-solution.jpg" alt="Solution Visual">
+        </div>
+    </div>
+</section>
+<!-- user flow & wireframes -->
+<section class="logic-section">
+    <div class="container-1200">
+        <div class="logic-block" data-aos="fade-up">
+            <h2 class="big-title">02. ユーザーフロー (User Flow)</h2>
+            <p class="logic-desc">
+                忙しい親子のために、ただレシピを紹介するだけではなく、「親子で作ること」そのものが楽しくなるように設計しています
+            </p>
+            
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-num">01</div>
+                    <div class="step-box">
+                        <h4>食材スチェック</h4>
+                        <p>冷蔵庫にある食材をえらぶ</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">02</div>
+                    <div class="step-box highlight">
+                        <h4>レシピ提案</h4>
+                        <p>食材を登録してぴったりレシピを選択</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">03</div>
+                    <div class="step-box">
+                        <h4>調理・分担</h4>
+                        <p>親子で役割を確認しながら調理</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">04</div>
+                    <div class="step-box">
+                        <h4>記録・保存</h4>
+                        <p>完成写真をアップしカレンダー保存</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="logic-block" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="big-title">03. ワイヤーフレーム (Wireframes)</h2>
+            
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/wireframes01.jpg" alt="Wireframes Design">
+            </div>
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/wireframes02.jpg" alt="Wireframes Design">
+            </div>
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/wireframes03.jpg" alt="Wireframes Design">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- các tính năng của app -->
+ <section class="key-features-section">
+    <div class="container-1200">
+    <h2 class="big-title">04. 主要機能 (Key Features)</h2>
+
+        <div class="feature-item" data-aos="fade-up">
+            <div class="feature-text">
+                <h3>レシピ提案機能</h3>
+                <p>冷蔵庫にある食材を選択、家族の好みに合わせた最適なレシピを数秒で提案します。献立に迷う時間を「親子の楽しい時間」に変えます。</p>
+            </div>
+            <div class="feature-mockup">
+                <img src="img/APP/cook-feature01.jpg" alt="AI Recipe Feature">
+            </div>
+        </div>
+
+        <div class="feature-item reverse" data-aos="fade-up">
+            <div class="feature-text">
+                <h3>親子の役割分担表示</h3>
+                <p>「ママの担当」と「こどもの担当」を分かりやすくアイコンで表示。こどもが安全に、かつ主体的に料理に参加できるようなステップ設計にこだわりました。</p>
+            </div>
+            <div class="feature-mockup">
+                <img src="img/APP/feature-role.png" alt="Role Division Feature">
+            </div>
+        </div>
+
+        <div class="feature-item" data-aos="fade-up">
+            <div class="feature-text">
+                <h3>おべんとう記録カレンダー</h3>
+                <p>完成したお弁当を「今日のおべんとう」として記録カレンダー形式で過去の写真が一覧で見られる</p>
+            </div>
+            <div class="feature-mockup">
+                <img src="img/APP/feature-record.png" alt="Memory Record Feature">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All screens -->
+ <section class="all-screens-section" data-aos="fade-up">
+    <div class="container-1200">
+        <h2 class="big-title">05. 全画面一覧 (All Screens)</h2>
+
+        <div class="screens-grid">
+            <div class="screen-item"><img src="img/APP/screen-01.jpg" alt="Home Screen"></div>
+            <div class="screen-item"><img src="img/APP/screen-02.jpg" alt="Recipe List"></div>
+            <div class="screen-item"><img src="img/APP/screen-03.jpg" alt="AI Suggest"></div>
+            <div class="screen-item"><img src="img/APP/screen-04.jpg" alt="Cooking Step"></div>
+            <div class="screen-item"><img src="img/APP/screen-05.jpg" alt="Role Selection"></div>
+            <div class="screen-item"><img src="img/APP/screen-06.jpg" alt="Timer"></div>
+            <div class="screen-item"><img src="img/APP/screen-07.jpg" alt="Record Calendar"></div>
+            <div class="screen-item"><img src="img/APP/screen-08.jpg" alt="My Page"></div>
+            </div>
+    </div>
+</section>
+
+<section class="next-project-section">
+    <div class="container-1200">
+        <div class="next-label" data-aos="fade-up">他のプロジェクト</div>
+        
+        <a href="nemuraapp.html" class="next-project-card" data-aos="zoom-in">
+            <div class="next-bg-image">
+                <img src="img/APP/nemura-hero.png" alt="Next Project Preview">
+            </div>
+            <div class="next-info">
+                <p>02. NEMURA APP</p>
+                <h3>タイトル：一日のSNSをまとめアプリ</h3>
+                <span class="view-case">VIEW CASE STUDY <span>→</span></span>
+            </div>
+        </a>
+
+        
+    </div>
+</section>
+</body>
+</html>

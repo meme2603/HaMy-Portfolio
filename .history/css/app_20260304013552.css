@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cấm tuyệt đối cuộn ngang */
+    max-width: 100%;
+}
+
+
+/* ====NEMURA APP====== */
+/* Layout chung cho cả trang */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+
+/* Sticky Layout (Chữ đứng yên, ảnh trôi) */
+.overview-grid, .sticky-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+.sticky-content {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+}
+
+/* Hero Section */
+.app-hero {
+    width: 100%;
+    background: #f4f4f4; /* Hoặc màu brand của bà */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-image img {
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+/* Problem & Solution Boxes */
+.solution-flex {
+    display: flex;
+    gap: 30px;
+}
+
+.solution-box {
+    flex: 1;
+    padding: 50px;
+    border-radius: 24px;
+}
+
+
+
+
+/* ===the context */
+ .context-section {
+    padding: 120px 20px;
+    text-align: center; /* Căn giữa để tạo sự trang trọng cho phần mở đầu */
+}
+
+.context-content {
+    max-width: 900px; /* Bóp lại một chút cho dễ đọc, không bị tràn lan */
+    margin: 0 auto;
+}
+
+.context-text {
+    margin: 40px auto 60px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: left; /* Chữ vẫn nên để căn lề trái cho dễ đọc */
+}
+
+.context-visual {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.context-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    /* Nếu muốn ảnh chìm vào nền thì bỏ shadow, còn muốn nổi thì thêm cái này: */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.context-visual .caption {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Tinh chỉnh lại cái big-title cho giống style Sammy AI */
+.context-section .big-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+/* ====THE CHALLENGE===  */
+.solution-layout {
+    padding: 100px 20px;
+}
+
+.problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi 2 cột */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.challenge-card {
+    padding: 60px 40px;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+/* Card Vấn đề: Màu xám nhạt tinh tế */
+.problem-card {
+    background: #F2F2F2;
+    color: #333;
+}
+
+/* Card Giải pháp: Màu Đen (Style Sammy AI) hoặc màu Brand của bà */
+.solution-card {
+    background: #000;
+    color: #fff;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card-icon {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-body h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.card-body p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-body ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Dấu gạch đầu dòng nhỏ xíu cho sang */
+.card-body ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+}
+
+/* Mobile: Xếp chồng lên nhau */
+@media (max-width: 768px) {
+    .problem-solution-grid {
+        grid-template-columns: 1fr;
+    }
+    .challenge-card {
+        padding: 40px 25px;
+    }
+}

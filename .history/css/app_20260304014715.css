@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Cấm tuyệt đối cuộn ngang */
+    max-width: 100%;
+}
+
+
+/* ====NEMURA APP====== */
+/* Layout chung cho cả trang */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.mid-scroll-image {
+    width: 100%;
+    height: 90vh; /* Độ cao của cái ảnh này, tầm 60% màn hình là đẹp */
+    overflow: hidden;
+    position: relative;
+    margin: 60px 0;
+}
+
+.fixed-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    /* ĐÂY LÀ PHÉP THUẬT: Giữ ảnh đứng yên khi cuộn */
+    background-attachment: fixed; 
+}
+
+
+
+
+/* ===the context */
+.context-section {
+    padding: 120px 20px;
+    text-align: center; /* Căn giữa để tạo sự trang trọng cho phần mở đầu */
+}
+
+.context-content {
+    max-width: 900px; /* Bóp lại một chút cho dễ đọc, không bị tràn lan */
+    margin: 0 auto;
+}
+
+.context-text {
+    margin: 40px auto 60px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: left; /* Chữ vẫn nên để căn lề trái cho dễ đọc */
+}
+
+.context-visual {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.context-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    /* Nếu muốn ảnh chìm vào nền thì bỏ shadow, còn muốn nổi thì thêm cái này: */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.context-visual .caption {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Tinh chỉnh lại cái big-title cho giống style Sammy AI */
+.context-section .big-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+/* ====THE CHALLENGE===  */
+.challenge-checkerboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0;
+}
+
+.checker-row {
+    display: flex;
+    width: 100%;
+    min-height: 550px; /* Độ cao vừa vặn cho 1 hàng */
+    overflow: hidden;
+}
+
+/* --- ĐÂY LÀ KHÚC SO LE --- */
+/* Mặc định: Chữ (content) rồi đến Ảnh (image) */
+.checker-row .checker-content { order: 1; }
+.checker-row .checker-image { order: 2; }
+
+/* Hàng REVERSE: Ảnh (image) lên trước, Chữ (content) ra sau */
+.checker-row.reverse .checker-content { order: 2; }
+.checker-row.reverse .checker-image { order: 1; }
+
+/* Styling chung cho các khối */
+.checker-content, .checker-image {
+    flex: 1;
+    width: 50%;
+}
+
+.checker-content {
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.problem-bg { background-color: #f9f9f9; color: #1a1a1a; }
+.solution-bg { background-color: #000000; color: #ffffff; }
+
+/* "Mắm muối" cho ảnh mượt mà */
+.checker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.checker-row:hover img {
+    transform: scale(1.05);
+}
+
+/* --- RESPONSIVE: Khi lên Mobile thì xếp dọc hết --- */
+@media (max-width: 992px) {
+    .checker-row, .checker-row.reverse {
+        flex-direction: column !important; /* Ép về hàng dọc */
+        min-height: auto;
+    }
+    
+    .checker-content, .checker-image {
+        width: 100%;
+        order: unset !important; /* Bỏ so le trên mobile để dễ nhìn */
+    }
+
+    .checker-image {
+        height: 300px; /* Giới hạn chiều cao ảnh trên mobile */
+    }
+    
+    /* Trên mobile: Cho ảnh lên trước chữ cho mỗi block để nhất quán */
+    .checker-row {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+}
