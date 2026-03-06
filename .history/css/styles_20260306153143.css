@@ -1187,7 +1187,7 @@ section {
     flex-direction: column;
     width: 100%; /* Nó sẽ tự lấy 100% của cái cột Grid (tức là 1/2 màn hình) */
     text-decoration: none;
-    border-radius: 4px; /* Thêm bo góc cho hiện đại nè bà */
+    border-radius: 20px; /* Thêm bo góc cho hiện đại nè bà */
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: all 0.4s ease;

@@ -1170,34 +1170,30 @@ section {
 }
 /* ====APP DESIGN======  */
 
-/* 1. Kích hoạt Grid trở lại cho Container */
+
+/* 1. Quan trọng nhất: Phá bỏ cái chia cột của Container */
 #app-projects .grid-container {
-    display: grid; 
-    /* Chia 2 cột bằng nhau, mỗi cột chiếm 1 phần (fr) */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 30px; /* Khoảng cách giữa 2 cái App */
+    display: block; /* Bỏ grid đi, dùng block để căn giữa dễ hơn */
     width: 100%;
-    max-width: 1200px; /* Tổng độ rộng của cả vùng chứa 2 App */
-    margin: 50px auto 0; /* Căn giữa cả cái Grid lớn */
+    margin-top: 50px;
 }
 
-/* 2. Chỉnh lại Card để nó tự co dãn theo Grid */
+/* 2. Căn giữa cái Card duy nhất */
 #app-projects .item-card {
-    display: flex; /* Dùng flex bên trong card để dễ quản lý nội dung */
-    flex-direction: column;
-    width: 100%; /* Nó sẽ tự lấy 100% của cái cột Grid (tức là 1/2 màn hình) */
+    display: block; /* Phải là block thì margin auto mới chạy */
+    width: 100%;
+    max-width: 1200px; /* Độ rộng bà muốn, 1000px hoặc 1200px tùy bà */
+    margin: 0 auto; /* CĂN GIỮA ĐÂY NÈ BÀ */
     text-decoration: none;
-    border-radius: 4px; /* Thêm bo góc cho hiện đại nè bà */
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: all 0.4s ease;
-    background: #fff;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
 }
 
-/* 3. Chỉnh lại khung ảnh cho cân đối với 2 cột */
+/* 3. Chỉnh khung ảnh cho hoành tráng */
 #app-projects .img-box {
     width: 100%;
-    height: 400px; /* Hạ chiều cao xuống vì giờ 1 hàng có 2 cái, cao quá nhìn mỏi mắt */
+    height: 650px; /* Cho nó cao lên nhìn mới sướng bà ạ */
     overflow: hidden;
     position: relative;
 }
@@ -1205,31 +1201,26 @@ section {
 #app-projects .img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    transition: transform 0.6s ease;
+    object-fit: cover; /* Đảm bảo ảnh không bị bẹp */
+    display: block;
 }
 
-/* Hiệu ứng Hover cho xịn xò Designer */
+/* Hiệu ứng hover cho sang */
 #app-projects .item-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-#app-projects .item-card:hover img {
-    transform: scale(1.05); /* Rê chuột vào ảnh nó zoom nhẹ ra */
-}
-
-/* 4. QUAN TRỌNG: Mobile thì phải về 1 cột */
-@media (max-width: 992px) {
+/* Responsive cho Mobile */
+@media (max-width: 768px) {
     #app-projects .grid-container {
-        grid-template-columns: 1fr; /* Màn hình nhỏ thì xếp chồng lên nhau */
-        padding: 0 20px; /* Cách lề 2 bên cho đẹp */
+        grid-template-columns: 1fr; /* Mobile thì xếp dọc nhưng vẫn giữ size bé */
+        gap: 40px;
     }
-    
-    #app-projects .img-box {
-        height: 300px; /* Mobile thì ảnh thấp lại tí */
+    #app-projects .item-card {
+        max-width: 280px; /* Trên điện thoại thì cho nhỏ lại tí nữa */
     }
 }
+
 /* ======About-extra========== */
 
 .about-me-extra {
