@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMURA-App</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+
+    
+    <link rel="icon" type="image/png" href="/img/memex2.png">
+</head>
+
+<body id="nemura-app">
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="first-part"><a href="index.html" class="logo-link">NGUYEN THI</a> </span>
+                <span class="last-part"><a href="index.html" class="logo-link">HA MY</a></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="web.html">Web Design</a></li>
+                    <li><a href="visual.html">Visual Design</a></li>
+                    <li><a href="app.html">App Design </a></li>
+                    <li><a href="#about-section">About</a></li>
+                    <li><a href="#contact-popup" class="material-symbols-outlined">mail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contact-popup" class="overlay">
+        <div class="popup">
+            <h2>お問い合わせ</h2> <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+                ご質問やご依頼など、お気軽にご連絡ください。
+                <br>(For any queries or work requests, please contact me.)
+            </p>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <form action="https://formspree.io/f/xnjzqegr" method="POST">
+                <input type="text" name="name" placeholder="お名前 ( Name)" required>
+                <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+                <textarea name="message" placeholder="メッセージ内容 (Messenger)"></textarea>
+                <button type="submit" class="btn-send">送信する</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="detail-hero">
+        <div class="parallax-bg" style="background-image: url('/img/APP/nemura-hero.png');"></div>
+    </section>
+
+    <section class="project-detail-layout">
+        <div class="container-detail">
+            <div class="case-study-grid">
+                
+                <aside class="project-info">
+                    <div class="main-info-group">
+                        <span class="category-tag">作品名</span>
+                        <h2 class="project-main-title">NEMURA APP</h2>
+                    </div>
+
+                    <div class="sub-info-group">
+                        <div class="info-block">
+                            <p class="info-label">制作時期</p>
+                            <p class="info-value">10月2025年ー2月2026年</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">担当</p>
+                            <p class="info-value">UI/UXデザイン</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">ツール</p>
+                            <p class="info-value">Figma</p>
+                        </div>
+                        <div class="info-block">
+                            <p class="info-label">作品URL</p>
+                            <p class="info-value"><a href="https://nemura.vercel.app" target="_blank">nemura.vercel.app</a></p>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="project-description">
+                    <h2 class="about-title">About The Project</h2>
+        
+                    <div class="description-grid">
+                        <div class="desc-main">
+                            <div class="desc-item">
+                                <h4 class="sub-title">一日寝落ち系AIニュースキュレーションアプリです。</h4>
+                                <p>本作は、SNSやニュースの情報をAIで要約し、 マスコットキャラクター「ねむら」が読み聞かせる形式で提供する 
+                                一日寝落ち系AIニュースキュレーションアプリです。
+                                夜の短い時間で必要な内容だけを無理なく確認できるよう設計しました。
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+        </div>
+        </div>
+    </section>
+    
+    <section class="mid-scroll-image">
+        <div class="fixed-bg" style="background-image: url('img/APP/nemura-thumbnail.jpg');">
+            <div class="overlay-text" data-aos="fade-up">
+            </div>
+        </div>
+    </section>
+
+ <!-- 背景・課題＆解決策案 -->
+    <section class="challenge-checkerboard">
+        <h2 class="big-title">01. 背景・課題＆解決策案</h2>
+    <div class="checker-row" data-aos="fade-up">
+        <div class="checker-content problem-bg">
+            <!-- <span class="label">01. The Problem</span> -->
+            <h3>ユーザーの課題</h3>
+            <p>ベッドに入って「もう寝よう」と思いながら、ついSNSやニュースを見続けてしまったことが多い</p> 
+            <ul class="check-list">
+                <li>ニュースやSNSの情報量が多く、把握しきれない</li>
+                <li>寝る前にスマホを見ると刺激が強く、頭が休まらない</li>
+                <li>情報を追おうとして夜更かししてしまう</li>
+            </ul>
+        </div>
+        <div class="checker-image">
+            <img src="img/APP/nemura-problem.jpg" alt="Problem Visual">
+        </div>
+    </div>
+
+    <div class="checker-row reverse" data-aos="fade-up">
+        <div class="checker-content solution-bg">
+            <!-- <span class="label">02. The Solution</span> -->
+            <h3>解決策の提案</h3>
+            <p>寝落ち系ニュースキュレーションアプリNEMURA（ねむら）です。</p>
+            <ul class="check-list">
+                <li>AIによるニュース・SNS要約</li>
+                <li>5〜15分で作れる時短レシピ</li>
+                <li>子どもと一緒に楽しめる</li>
+            </ul>
+        </div>
+        <div class="checker-image">
+            <img src="img/APP/nemura-solution.jpg" alt="Solution Visual">
+        </div>
+    </div>
+    </section>
+    <!-- user flow & wireframes -->
+        <section class="logic-section">
+        <div class="container-1200">
+        <!-- <div class="logic-block" data-aos="fade-up"> -->
+            <h2 class="big-title">02. ユーザーフロー (User Flow)</h2>
+            <p class="logic-desc">
+                「スマホを見続けてしまう」という行動を否定せず、耳から情報を得ることで自然に睡眠へ誘う体験を設計しています。
+            </p>
+            
+            <div class="flow-image-container">
+                <img src="img/APP/nemura-userflow.jpg" alt="NEMURA User Flow">
+            <!-- </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="wireframe">
+        <div class="logic-block" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="big-title">03. ワイヤーフレーム (Wireframes)</h2>
+            
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/nemura-welcome.jpg" alt="Wireframes Design">
+            </div>
+
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/nemura-home.jpg" alt="Wireframes Design">
+            </div>
+
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/nemura-playlist.jpg" alt="Wireframes Design">
+            </div>
+
+            <div class="logic-visual wire-bg">
+                <img src="img/APP/nemura-sleep.jpg" alt="Wireframes Design">
+            </div>
+        </div>
+    </section>
+
+<!-- All screens -->
+ <section class="all-screens-section" data-aos="fade-up">
+    <div class="container-1200">
+        <h2 class="big-title">05. 全画面一覧 (All Screens)</h2>
+
+        <div class="screens-grid">
+            <div class="screen-item"><img src="img/APP/welcome-design.jpg" alt="Home Screen"></div>
+            <div class="screen-item"><img src="img/APP/home-design.jpg" alt="Recipe List"></div>
+            <div class="screen-item"><img src="img/APP/playlist-design.jpg" alt="My Page"></div>
+            <div class="screen-item"><img src="img/APP/sleep-design.jpg" alt="AI Suggest"></div>
+            <div class="screen-item"><img src="img/APP/morning-design.jpg" alt="AI Suggest"></div>
+            </div>
+    </div>
+</section>
+
+<section class="nemura-style-guide">
+    <div class="container-1200">
+        <div class="logic-block" data-aos="fade-up">
+            <h2 class="big-title">04. スタイルガイド (Style Guide)</h2>
+            
+            <div class="style-content">
+                <div class="style-section typo-wrapper">
+                    <div class="typo-visual">
+                        <span class="letter-display">AaBbCcあいうえお123</span>
+                    </div>
+                    
+                    <div class="typo-info">
+                        <h3>Typography</h3>
+                        <p class="font-name">Zen Maru Gothic</p>
+                        <p class="nmr-description-text">
+                            角を丸くすることで文字が情報を強調しすぎない <br>
+                            夜の静かな世界観に合わせてユーザーの気持ちをゆっくりと落ち着かせます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="color-palette-container">
+                    <div class="color-card primary-bg">
+                        <div class="color-meta">
+                            <span class="color-name">Primary</span>
+                            <span class="hex-code">#1D57A6</span>
+                        </div>
+                        <div class="rgb-info"><span>RGB</span> 29 / 87 / 166</div>
+                    </div>
+
+                    <div class="color-card background-bg">
+                        <div class="color-meta">
+                            <span class="color-name">Background</span>
+                            <span class="hex-code">#0D1B2A</span>
+                        </div>
+                        <div class="rgb-info"><span>RGB</span> 13 / 27 / 42</div>
+                    </div>
+
+                    <div class="color-card gradient-full-bg">
+                        <div class="color-meta">
+                            <span class="color-name">Gradient Style</span>
+                            <span class="hex-code">#000000 15% → #1D57A6 100%</span>
+                        </div>
+                        <div class="rgb-info">Linear Gradient / 135deg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="nemura-animation-showcase">
+    <div class="container-1200">
+        <div class="logic-block" data-aos="fade-up">
+            <h2>05. キャラクターアニメーション (Animations)</h2>
+            <p>ねむらの構成は、アプリの柔らかく、落ち着いた雰囲気と、夜空の星を組み合わせて行いました。
+                柔らかいイメージを持ってもらうために、<br>耳や体を含めた全体のフォルムは角をなくし、丸みのあるデザインを意識しています。</p>
+            
+            <div class="anim-list">
+                <div class="anim-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline>
+                            <source src="img/APP/sleep.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="anim-info">
+                        <span class="anim-number">01</span>
+                        <h3>入眠の呼吸 (Deep Breathing)</h3>
+                    </div>
+                </div>
+
+                <div class="anim-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline>
+                            <source src="img/APP/listen.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="anim-info">
+                        <span class="anim-number">02</span>
+                        <h3>リラックス状態 (Relaxing Mode)</h3>
+                    </div>
+                </div>
+
+                <div class="anim-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline>
+                            <source src="img/APP/smile.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="anim-info">
+                        <span class="anim-number">03</span>
+                        <h3>おやすみ合図 (Sleep Signal)</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nmr-character-sheet" data-aos="fade-up" data-aos-delay="400">
+                <div class="sheet-title-box">
+                    <h3 class="sheet-main-title">Character Collection</h3>
+                </div>
+                
+                <div class="sheet-img-wrapper">
+                    <img src="img/APP/nemura-character.png" alt="Nemura Characters" loading="lazy">
+                </div>
+                <p class="sheet-caption">個性豊かな10種類のサブキャラクターたちが、一晩中ユーザーに寄り添います。</p>
+            </div>
+            </div>
+    </div>
+</section>
+
+<section class="next-project-section">
+    <div class="container-1200">
+        <div class="next-label" data-aos="fade-up">他のプロジェクト</div>
+        
+        <a href="cookapp.html" class="next-project-card" data-aos="zoom-in">
+            <div class="next-bg-image">
+                <img src="img/APP/cook-hero.png" alt="Next Project Preview">
+            </div>
+            <div class="next-info">
+                <p>EASY COOK</p>
+                <h3>タイトル：毎日お弁当提案アプリ</h3>
+                <span class="view-case">VIEW CASE STUDY <span>→</span></span>
+            </div>
+        </a>
+
+        
+    </div>
+</section>
+</body>
+</html>
